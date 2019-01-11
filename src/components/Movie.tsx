@@ -1,9 +1,9 @@
 import React from 'react';
-import Layout from '../components/common/SiteTemplate';
-import CommentsList from '../components/routes/movie/CommentsList';
-import DownloadLinks from '../components/routes/movie/DownloadLinks';
-import MostViews from '../components/routes/movie/MostViews';
-import OtherEpisodesCarousel from '../components/routes/movie/OtherEpisods';
+import Layout from './common/SiteTemplate';
+import CommentsList from './Movies/CommentsList';
+import DownloadLinks from './Movies/DownloadLinks';
+import MostViews from './Movies/MostViews';
+import OtherEpisodesCarousel from './Movies/OtherEpisods';
 
 class Movie extends React.Component {
   public state = {

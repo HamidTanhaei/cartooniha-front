@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/react-slick": "^0.23.2",
+    "axios": "^0.18.0",
     "express": "^4.16.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

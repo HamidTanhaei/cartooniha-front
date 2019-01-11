@@ -40,6 +40,7 @@ const server = express()
               ? `<script src="${assets.client.js}" defer></script>`
               : `<script src="${assets.client.js}" defer crossorigin></script>`
           }
+          <script>window.env = ${JSON.stringify(process.env)}</script>
     </head>
     <body>
         <div id="root">${markup}</div>

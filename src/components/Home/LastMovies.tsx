@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieItem from '../../common/MovieItem';
+import Index from '../VideoCard';
 
 const layoutStyle = {
   strokeWidth: 99,
@@ -32,25 +32,25 @@ export default () => (
             <img src="http://127.0.0.1:3000/static/images/monster-red.png" />
           </div>
           <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3 movies-list">
-            <MovieItem />
+            <Index />
           </div>
           <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3 movies-list">
-            <MovieItem />
+            <Index />
           </div>
           <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3 movies-list">
-            <MovieItem />
+            <Index />
           </div>
           <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3 movies-list">
-            <MovieItem />
+            <Index />
           </div>
           <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3 movies-list">
-            <MovieItem />
+            <Index />
           </div>
           <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3 movies-list">
-            <MovieItem />
+            <Index />
           </div>
           <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3 movies-list">
-            <MovieItem />
+            <Index />
           </div>
         </div>
       </div>

@@ -1,12 +1,20 @@
 import React from 'react';
+import axios from 'axios';
 import { Route, Switch } from 'react-router-dom';
-import Home from './routes/Home';
-import Movie from './routes/Movie';
-import './static/css/bootstrap.css';
+import HomeContainer from './containers/Home';
+import Movie from './components/Movie';
+import './theme/static/css/bootstrap.css';
+
+if(typeof window !== 'undefined'){
+    console.log(window.env);
+}
+
+// config axios default URL
+axios.defaults.baseURL = `${process.env.REACT_APP_API_BASE_PATH}${process.env.REACT_APP_API_VERSION}`;
 
 const App = () => (
     <Switch>
-        <Route exact={true} path="/" component={Home} />
+        <Route exact={true} path="/" component={HomeContainer} />
         <Route exact={true} path="/movie" component={Movie} />
     </Switch>
 );

@@ -1,8 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
-import '../../../styles/slick/slick-theme.css';
-import MovieItem from '../../common/MovieItem';
+import '../../containers/styles/slick/slick-theme.css';
+import Index from '../VideoCard';
 
 class Carousel extends React.Component {
   public render() {
@@ -32,19 +32,19 @@ class Carousel extends React.Component {
     return (
       <Slider {...settings}>
         <div>
-          <MovieItem />
+          <Index />
         </div>
         <div>
-          <MovieItem />
+          <Index />
         </div>
         <div>
-          <MovieItem />
+          <Index />
         </div>
         <div>
-          <MovieItem />
+          <Index />
         </div>
         <div>
-          <MovieItem />
+          <Index />
         </div>
       </Slider>
     );

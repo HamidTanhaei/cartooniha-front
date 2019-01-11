@@ -1,5 +1,5 @@
 import React from 'react';
-class MovieItem extends React.Component {
+class Index extends React.Component {
   public render() {
   const image = 'http://127.0.0.1:3000/static/images/cartoon-simple-pic.png';
   return (
@@ -29,4 +29,4 @@ class MovieItem extends React.Component {
   }
 }
 
-export default MovieItem;
+export default Index;
