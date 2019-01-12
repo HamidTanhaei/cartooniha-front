@@ -5,12 +5,8 @@ import HomeContainer from './containers/Home';
 import Movie from './components/Movie';
 import './theme/static/css/bootstrap.css';
 
-if(typeof window !== 'undefined'){
-    console.log(window.env);
-}
-
 // config axios default URL
-axios.defaults.baseURL = `${process.env.REACT_APP_API_BASE_PATH}${process.env.REACT_APP_API_VERSION}`;
+axios.defaults.baseURL = `${process.env.RAZZLE_APP_API_BASE_PATH}${process.env.RAZZLE_APP_API_VERSION}`;
 
 const App = () => (
     <Switch>

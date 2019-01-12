@@ -14,8 +14,8 @@ class Index extends React.Component<Props>{
     public render() {
         console.log(this.props.data);
         return (
-            <Layout HeadStyle="home">
-                <NewAnimations />
+            <Layout HeadStyle="home" sliderData={this.props.data.slider}>
+                <NewAnimations/>
                 <OldCartoons />
                 <UsersMostStars />
                 <JapanMovies />

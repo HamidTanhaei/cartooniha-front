@@ -1,5 +1,8 @@
 'use strict';
 
 module.exports = {
-  plugins: ['typescript'],
+  plugins: [
+      'typescript',
+      'runtimeenv'
+  ]
 };

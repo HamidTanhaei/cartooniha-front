@@ -7,12 +7,12 @@ interface State {
 }
 
 class HomeContainer extends React.Component<any, State> {
-    public state = {};
+    public state: State = {};
     private HomeApi = new HomeApi();
 
     public async componentDidMount() {
-        const homeData = await this.HomeApi.get();
-        this.setState({homeData});
+        const {data} = await this.HomeApi.get();
+        this.setState({homeData: data});
     }
 
     public render() {
