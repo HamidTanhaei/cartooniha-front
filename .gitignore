@@ -12,3 +12,5 @@ public/static
 .env.test.local
 .env.production.local
 .idea
+
+.sass-cache
