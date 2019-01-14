@@ -18,7 +18,7 @@ class HomeContainer extends React.Component<any, State> {
     public render() {
         const {homeData} = this.state;
         return (
-            <Home data={homeData} />
+            <Home {...homeData} />
         );
     }
 }

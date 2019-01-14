@@ -7,19 +7,23 @@ import OldCartoons from './OldCartoons';
 import UsersMostStars from './UsersMostStars';
 
 interface Props {
-    data: any;
+    slider?: any;
+    lastCartoons?: any;
+    lastAnimations?: any;
+    lastAnimes?: any;
+    topVideoVisits?: any;
 }
 
-class Index extends React.Component<Props>{
+class Index extends React.Component<Props> {
     public render() {
-        console.log(this.props.data);
+        const { slider, lastCartoons, lastAnimations, lastAnimes, topVideoVisits } = this.props;
         return (
-            <Layout HeadStyle="home" sliderData={this.props.data.slider}>
-                <NewAnimations/>
-                <OldCartoons />
+            <Layout HeadStyle="home" sliderData={slider}>
+                <NewAnimations data={lastAnimations} />
+                <OldCartoons data={lastCartoons} />
                 <UsersMostStars />
-                <JapanMovies />
-                <LastMovies />
+                <JapanMovies data={lastAnimes} />
+                <LastMovies data={topVideoVisits} />
             </Layout>
         );
     }

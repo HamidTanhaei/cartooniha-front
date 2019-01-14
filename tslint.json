@@ -18,7 +18,7 @@
     "interface-name": [true, "never-prefix"],
     "jsdoc-format": true,
     "jsx-no-lambda": false,
-    "jsx-no-multiline-js": true,
+    "jsx-no-multiline-js": false,
     "jsx-wrap-multiline": false,
     "label-position": true,
     "max-line-length": false,
@@ -40,6 +40,7 @@
     "no-trailing-whitespace": false,
     "no-unused-expression": true,
     "no-use-before-declare": true,
+    "ordered-imports": [false],
     "one-line": [
       true,
       "check-catch",

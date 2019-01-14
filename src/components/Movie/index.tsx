@@ -1,11 +1,11 @@
 import React from 'react';
-import Layout from './common/SiteTemplate';
-import CommentsList from './Movies/CommentsList';
-import DownloadLinks from './Movies/DownloadLinks';
-import MostViews from './Movies/MostViews';
-import OtherEpisodesCarousel from './Movies/OtherEpisods';
+import Layout from '../common/SiteTemplate';
+import CommentsList from './CommentsList';
+import DownloadLinks from './DownloadLinks';
+import MostViews from './MostViews';
+import OtherEpisodesCarousel from './OtherEpisods';
 
-class Movie extends React.Component {
+class Index extends React.Component {
   public state = {
     navTabActiveType: 0,
   };
@@ -130,4 +130,4 @@ class Movie extends React.Component {
   }
 }
 
-export default Movie;
+export default Index;

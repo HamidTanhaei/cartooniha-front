@@ -4,7 +4,7 @@ import SiteHeader from './SiteHeader';
 
 const Layout = (props: any) => (
   <div>
-    <SiteHeader HeadStyle={props.HeadStyle} />
+    <SiteHeader sliderData={props.sliderData} HeadStyle={props.HeadStyle} />
     {props.children}
     <SiteFooter />
   </div>

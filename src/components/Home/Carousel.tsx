@@ -1,11 +1,16 @@
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
-import '../../containers/styles/slick/slick-theme.css';
-import Index from '../VideoCard';
+import '../../theme/slick/slick-theme.css';
+import VideoCard from '../VideoCard';
 
-class Carousel extends React.Component {
+interface Props {
+  data?: any;
+}
+
+class Carousel extends React.Component<Props> {
   public render() {
+    const { data } = this.props;
     const settings = {
       dots: true,
       infinite: true,
@@ -30,23 +35,15 @@ class Carousel extends React.Component {
       ],
     };
     return (
-      <Slider {...settings}>
-        <div>
-          <Index />
-        </div>
-        <div>
-          <Index />
-        </div>
-        <div>
-          <Index />
-        </div>
-        <div>
-          <Index />
-        </div>
-        <div>
-          <Index />
-        </div>
-      </Slider>
+        <Slider {...settings}>
+          {data ? Object.keys(data).map((key) => {
+            return (
+                <div key={key}>
+                  <VideoCard data={data[key]} />
+                </div>
+            );
+          }) : <div>loading...</div>}
+        </Slider>
     );
   }
 }

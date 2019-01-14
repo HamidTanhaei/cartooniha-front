@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import HeaderHome from './index';
 
 function NextSlideArrow(props: any) {
   const { onClick } = props;
@@ -20,33 +21,30 @@ function PrevSlideArrow(props: any) {
     </a>);
 }
 
-class Carousel extends React.Component {
-  public render() {
-    const settings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      nextArrow: <NextSlideArrow />,
-      prevArrow: <PrevSlideArrow />,
-    };
-    return (
-      <Slider {...settings}>
-        <div>
-          <img className="img-respansive" src="http://127.0.0.1:3000/static/images/img-slide.png" />
-        </div>
-        <div>
-          <img className="img-respansive" src="http://127.0.0.1:3000/static/images/img-slide.png" />
-        </div>
-        <div>
-          <img className="img-respansive" src="http://127.0.0.1:3000/static/images/img-slide.png" />
-        </div>
-      </Slider>
-    );
-  }
+function TheSlider(props: any) {
+  const { slides } = props;
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    nextArrow: <NextSlideArrow />,
+    prevArrow: <PrevSlideArrow />,
+  };
+  return (
+    <Slider {...settings}>
+      {slides ? Object.keys(slides).map( (key) => {
+        return (
+            <div key={key}>
+              <img className="img-respansive" src={slides[key].image} />
+            </div>
+        );
+      }) : <div>loading slider</div>}
+    </Slider>
+);
 }
 
-export default () => (
+export default (props: any) => (
   <div className="row">
     <div className="hidden-xs hidden-sm col-md-2 col-lg-2">
       <div className="monster" />
@@ -59,7 +57,7 @@ export default () => (
         </ol>
 
         <div role="listbox" className="carousel-inner">
-          <Carousel />
+          <TheSlider slides={props.sliderData} />
         </div>
       </div>
       <ul className="mainlinks">

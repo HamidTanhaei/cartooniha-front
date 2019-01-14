@@ -6,7 +6,7 @@ const layoutStyle = {
   stroke: 'rgb(254, 184, 72)',
 };
 
-export default () => (
+export default (props: any) => (
   <section className="mainpage-section2 mainpage-section4">
     <div className="container">
       <div className="row">

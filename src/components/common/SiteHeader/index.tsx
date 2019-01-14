@@ -1,4 +1,5 @@
 import React from 'react';
+import SiteHeader from '../SiteTemplate';
 import HeaderHome from './HeaderHome';
 import HeaderInner from './HeaderInner';
 
@@ -31,7 +32,7 @@ export default (props: any) => (
       </div>
     </div>
     <div className="container">
-      {props.HeadStyle === 'home' ? <HeaderHome /> : <HeaderInner />}
+      {props.HeadStyle === 'home' ? <HeaderHome sliderData={props.sliderData} /> : <HeaderInner />}
     </div>
     <div className="clear" />
     {props.HeadStyle === 'inner' ? '' : <Stroke />}

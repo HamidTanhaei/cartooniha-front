@@ -5,7 +5,7 @@ const layoutStyle = {
   strokeWidth: 99,
   stroke: 'rgb(51, 214, 158)',
 };
-export default () => (
+export default (props: any) => (
   <section className="mainpage-section2">
     <div className="container khatchin">
       <div className="row">
@@ -21,7 +21,7 @@ export default () => (
             <div className="clear" />
           </div>
           <div id="owlslider1" className="owlslidermp movies-list">
-            <Carousel />
+            <Carousel data={props.data} />
           </div>
         </div>
       </div>
