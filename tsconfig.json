@@ -30,7 +30,8 @@
     "webpack",
     "jest",
     "razzle.config.js",
-    "src/theme/static"
+    "src/theme/static/**",
+    "src/utils/library/**"
   ],
   "types": ["typePatches", "node", "webpack-env"],
   "rules": {

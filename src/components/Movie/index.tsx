@@ -3,9 +3,22 @@ import Layout from '../common/SiteTemplate';
 import CommentsList from './CommentsList';
 import DownloadLinks from './DownloadLinks';
 import MostViews from './MostViews';
+import { getVideoName, persianJs } from '../../utils';
+
 import OtherEpisodesCarousel from './OtherEpisods';
 
-class Index extends React.Component {
+interface Props {
+  loading: boolean;
+  pageData: any;
+}
+
+const loadingData = {
+  name: 'loading...',
+  summary: 'loading...',
+  customorder: '',
+};
+
+class VideoPage extends React.Component<Props> {
   public state = {
     navTabActiveType: 0,
   };
@@ -13,7 +26,13 @@ class Index extends React.Component {
   public changeNavTab = (type: any) => {
     this.setState({ navTabActiveType: type });
   }
+
   public render() {
+    const info = this.props.pageData ? this.props.pageData : loadingData;
+    if (this.props.pageData) {
+      info.customorder = '(اپیزود ' + (persianJs(this.props.pageData.customorder).digitsToWords()._str) + ')';
+    }
+
     return (
       <Layout HeadStyle="inner">
         <section className="innerpage-section2">
@@ -56,9 +75,9 @@ class Index extends React.Component {
                   <div className="video-info">
                     <div className="video-info-title">
                       <h3>
-                        انیمیشن the simpsons
+                        {info.name}
                         <span>
-                                        (اپیزود نوزدهم)
+                            {info.customorder}
                         </span>
                       </h3>
                       <div className="top-view-count">
@@ -67,7 +86,7 @@ class Index extends React.Component {
                     </div>
                     <div className="video-info-des">
                       <p>
-                        هومِرپدر خانواده‌ است. 38 سال سن دارد، سرش طاس است و وزن او نزدیک به 100 کیلوگرم (216 پوند) است. کم مسوًولیت است، که البته علت اصلی دومی، به کم‌هوش بودنش و رفتارهای بچه‌گانه‌اش برمی‌گردد. هومر مسول ایمنی نیروگاه اتمی اسپرینگ فیلد نیز می‌باشد!!! هومر بسیار به بطری‌های آب‌جویش که مارک داف هستند علاقه دارد و همچنین به دونات (پیراشکی) که عاشق آنهاست. شکلات هم زیاد دوست دارد و هیچ‌گاه، حتی در شرایط بد، خوردن چیزهای مورد علاقه اش را قطع نمی‌کند.
+                        {info.summary}
                       </p>
                     </div>
                   </div>
@@ -130,4 +149,4 @@ class Index extends React.Component {
   }
 }
 
-export default Index;
+export default VideoPage;

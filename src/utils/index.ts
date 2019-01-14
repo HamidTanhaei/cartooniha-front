@@ -10,3 +10,5 @@ export const getVideoName = (data: any) => {
         return null;
     }
 };
+
+export { default as persianJs} from './library/persian.min';

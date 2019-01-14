@@ -2,7 +2,8 @@
   "extends": ["tslint:recommended", "tslint-react"],
   "linterOptions": {
     "exclude": [
-      "src/static"
+      "src/theme/static/**",
+      "src/utils/library/**"
     ]
   },
   "rules": {
