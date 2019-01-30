@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
-import HeaderHome from './index';
+import { Link } from 'react-router-dom';
+// import HeaderHome from './index';
 
 function NextSlideArrow(props: any) {
   const { onClick } = props;
@@ -62,8 +63,10 @@ export default (props: any) => (
       </div>
       <ul className="mainlinks">
         <li>
-          <div className="icon1 animate03" />
-          صفحه اصلی
+          <Link to="/">
+            <div className="icon1 animate03" />
+            صفحه اصلی
+          </Link>
         </li>
         <li>
           <div className="icon2 animate03" />

@@ -1,24 +1,29 @@
 import React from 'react';
+import { IVideoPage } from '../../interfaces/video';
 import Layout from '../common/SiteTemplate';
 import CommentsList from './CommentsList';
 import DownloadLinks from './DownloadLinks';
 import MostViews from './MostViews';
-import { getVideoName, persianJs } from '../../utils';
+import { getVideoEpisodeNumber, getVideoImage } from '../../utils';
+import { SingleLine, MultiLine } from '../ContentLoader';
 
 import OtherEpisodesCarousel from './OtherEpisods';
 
-interface Props {
-  loading: boolean;
-  pageData: any;
-}
-
-const loadingData = {
-  name: 'loading...',
-  summary: 'loading...',
-  customorder: '',
+type IProps = {
+  loading:  false;
+  pageData:  IVideoPage;
+} | {
+  loading: true;
 };
 
-class VideoPage extends React.Component<Props> {
+const loadingData = {
+  name: <SingleLine config={{width: 200, height: 15}} />,
+  summary: <MultiLine config={{width: 500}} />,
+  customorder: <SingleLine config={{width: 100, height: 10}} />,
+  otherEpisodes: {}
+};
+
+class VideoPage extends React.Component<IProps> {
   public state = {
     navTabActiveType: 0,
   };
@@ -28,9 +33,14 @@ class VideoPage extends React.Component<Props> {
   }
 
   public render() {
-    const info = this.props.pageData ? this.props.pageData : loadingData;
-    if (this.props.pageData) {
-      info.customorder = '(اپیزود ' + (persianJs(this.props.pageData.customorder).digitsToWords()._str) + ')';
+    const info = this.props.loading ? loadingData : this.props.pageData;
+
+    let episodeNumber;
+    if (!this.props.loading) {
+      // @ts-ignore
+      episodeNumber = getVideoEpisodeNumber(this.props.pageData.customorder);
+    } else {
+      episodeNumber = loadingData.customorder;
     }
 
     return (
@@ -50,7 +60,7 @@ class VideoPage extends React.Component<Props> {
                       className="video-js vjs-default-skin"
                       controls={true}
                       preload="none"
-                      poster="http://cartooniha.com/http://127.0.0.1:3000/static/images/CatsImage/357/player-493x301.jpg"
+                      poster={getVideoImage(info)}
                       data-setup="{}"
                     />
                   </div>
@@ -77,27 +87,27 @@ class VideoPage extends React.Component<Props> {
                       <h3>
                         {info.name}
                         <span>
-                            {info.customorder}
+                            {episodeNumber}
                         </span>
                       </h3>
                       <div className="top-view-count">
                         405 بازدید
                       </div>
+                      <div className="clear" />
                     </div>
                     <div className="video-info-des">
-                      <p>
-                        {info.summary}
-                      </p>
+                      {info.summary}
                     </div>
                   </div>
                   <div className="video-tabs">
 
                     <ul className="nav nav-tabs">
-                      <li className={this.state.navTabActiveType === 0 ? ' active' : ''} onClick={() => this.changeNavTab(0)}>
+                      {!!Object.keys(info.otherEpisodes).length && <li className={this.state.navTabActiveType === 0 ? ' active' : ''} onClick={() => this.changeNavTab(0)}>
                         <a>
                           <img src="http://127.0.0.1:3000/static/images/tab2.png" />
                         </a>
-                      </li>
+                      </li>}
+
                       <li className={this.state.navTabActiveType === 1 ? ' active' : ''} onClick={() => this.changeNavTab(1)}>
                         <a>
                           <img src="http://127.0.0.1:3000/static/images/tab1.png" />
@@ -106,10 +116,12 @@ class VideoPage extends React.Component<Props> {
                     </ul>
 
                     <div className="tab-content">
-                      <div className={`tab-pane ${this.state.navTabActiveType === 0 ? ' active' : ''}`}>
-                        <OtherEpisodesCarousel />
-                      </div>
-                      <div className={`tab-pane ${this.state.navTabActiveType === 1 ? ' active' : ''}`}>
+                      {!!Object.keys(info.otherEpisodes).length && (
+                          <div className={`tab-pane ${this.state.navTabActiveType === 0 ? 'active' : ''}`}>
+                            <OtherEpisodesCarousel loading={this.props.loading} episodes={info.otherEpisodes} />
+                          </div>
+                      )}
+                      <div className={`tab-pane ${(this.state.navTabActiveType === 1 || !Object.keys(info.otherEpisodes).length) ? ' active' : ''}`}>
                         <DownloadLinks />
                       </div>
                     </div>

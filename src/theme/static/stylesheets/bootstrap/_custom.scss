@@ -10,7 +10,7 @@
 }
 body{font-family: BYekan; direction:rtl;}
 a:hover{text-decoration:none;}
-.clear{clear:both;}
+.clear{clear:both; float:none !important;}
 
 .animate03, .animate03:hover{transition: all 0.3s linear 0s; -moz-transition:  all 0.3s linear 0s; -webkit-transition:  all 0.3s linear 0s; -o-transition:  all 0.3s linear 0s;}
 
@@ -353,9 +353,7 @@ a:hover{text-decoration:none;}
     .video-info-title div {
         float: left;
     }
-    .video-info-des {
-        float: right;
-    }
+    .video-info-des {}
     .video-info-des p {
         color: #474747;
         text-align: justify;

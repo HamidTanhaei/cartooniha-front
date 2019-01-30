@@ -7144,6 +7144,7 @@ a:hover {
 
 .clear {
   clear: both;
+  float: none !important;
 }
 
 .animate03, .animate03:hover {
@@ -7962,9 +7963,6 @@ a:hover {
 }
 .video-info .video-info-title div {
   float: left;
-}
-.video-info .video-info-des {
-  float: right;
 }
 .video-info .video-info-des p {
   color: #474747;

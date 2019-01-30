@@ -1,22 +1,36 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { getVideoEpisodeNumber, getVideoImage } from '../../utils';
+import { IVideoOtherEpisodes } from '../../interfaces/video';
+import ImgPlaceHolder from '../ImgPlaceHolder';
 
-function Item() {
+interface IProps {
+  loading: boolean;
+  episodes: any;
+}
+
+function Item(props: any) {
+  const data: IVideoOtherEpisodes = props.data;
   return (
     <div className="item">
       <a href="#">
-        <img src="http://127.0.0.1:3000/static/images/ep1.jpg" alt="Owl Image" className="tab-c-img" />
+        <ImgPlaceHolder
+            src={getVideoImage(data)}
+            alt={data.name}
+            className="tab-c-img"
+        />
         <h3 className="tab-c-title">
-        انیمیشن the simpsons
+          {data.name}
           <br />
-        (اپیزود شانزدهم)
+        ({getVideoEpisodeNumber(data)})
         </h3>
       </a>
     </div>);
 }
 
-class OtherEpisodesCarousel extends React.Component {
+class OtherEpisodesCarousel extends React.Component<IProps> {
   public render() {
+    const { loading, episodes } = this.props;
     const settings = {
       dots: true,
       infinite: true,
@@ -43,15 +57,7 @@ class OtherEpisodesCarousel extends React.Component {
     return (
       <div id="tab-owl" className="owlslidermp">
         <Slider {...settings}>
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          {!loading && Object.keys(episodes).map((key) => <Item key={key} data={episodes[key]} />)}
         </Slider>
       </div>
     );

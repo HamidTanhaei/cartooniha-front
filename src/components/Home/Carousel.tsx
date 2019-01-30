@@ -4,11 +4,11 @@ import 'slick-carousel/slick/slick.css';
 import '../../theme/slick/slick-theme.css';
 import VideoCard from '../VideoCard';
 
-interface Props {
+interface IProps {
   data?: any;
 }
 
-class Carousel extends React.Component<Props> {
+class Carousel extends React.Component<IProps> {
   public render() {
     const { data } = this.props;
     const settings = {

@@ -6,7 +6,7 @@ import NewAnimations from './NewAnimations';
 import OldCartoons from './OldCartoons';
 import UsersMostStars from './UsersMostStars';
 
-interface Props {
+interface IProps {
     slider?: any;
     lastCartoons?: any;
     lastAnimations?: any;
@@ -14,7 +14,7 @@ interface Props {
     topVideoVisits?: any;
 }
 
-class Index extends React.Component<Props> {
+class Index extends React.Component<IProps> {
     public render() {
         const { slider, lastCartoons, lastAnimations, lastAnimes, topVideoVisits } = this.props;
         return (

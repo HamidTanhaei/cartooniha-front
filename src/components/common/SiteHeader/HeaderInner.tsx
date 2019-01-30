@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default () => (
     <div className="row">
@@ -6,10 +7,10 @@ export default () => (
         <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 firstSlideshow">
             <ul className="mainlinks">
                 <li>
-                    <a href="#">
+                    <Link to="/">
                         <div className="icon1 animate03"/>
                         صفحه اصلی
-                    </a>
+                    </Link>
                 </li>
                 <li>
                     <a href="#">
