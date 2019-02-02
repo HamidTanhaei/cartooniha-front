@@ -1,7 +1,16 @@
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { getStoredState, persistCombineReducers } from 'redux-persist';
+// @ts-ignore
+import { CookieStorage, NodeCookiesWrapper } from 'redux-persist-cookie-storage';
 import { StaticRouter } from 'react-router-dom';
+import reducers from './redux/rootReducer';
+
+// @ts-ignore
+import Cookies from 'cookies';
 
 import App from './App';
 
@@ -12,16 +21,47 @@ const syncLoadAssets = () => {
 };
 syncLoadAssets();
 
-const server = express()
+const server = express();
+
+server.use(async (req: any, res, next) => {
+    // @ts-ignore
+    const cookieJar = new NodeCookiesWrapper(new Cookies(req, res));
+
+    const persistConfig = {
+        key: 'root',
+        storage: new CookieStorage(cookieJar),
+        stateReconciler(inboundState: any, originalState: any) {
+            return originalState;
+        }
+    };
+
+    let preloadedState;
+    try {
+        preloadedState = await getStoredState(persistConfig);
+    } catch (e) {
+        preloadedState = {};
+    }
+
+    const rootReducer = persistCombineReducers(persistConfig, reducers);
+
+    req.reduxStore = createStore(rootReducer, preloadedState);
+    res.removeHeader('Set-Cookie');
+    next();
+});
+
+server
     .disable('x-powered-by')
     .use(express.static(process.env.RAZZLE_PUBLIC_DIR!))
-    .get('/*', (req: express.Request, res: express.Response) => {
+    .get('/*', (req: any, res) => {
         const context = {};
         const markup = renderToString(
             <StaticRouter context={context} location={req.url}>
-                <App />
+                <Provider store={req.reduxStore}>
+                    <App />
+                </Provider>
             </StaticRouter>
         );
+
         res.send(
             `<!doctype html>
     <html lang="">

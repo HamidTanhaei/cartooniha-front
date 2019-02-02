@@ -1,7 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import SiteHeader from '../SiteTemplate';
 import HeaderHome from './HeaderHome';
 import HeaderInner from './HeaderInner';
+
+import * as actions from '../../../redux/sample/action';
 
 const layoutStyle = {
   strokeWidth: 99,
@@ -18,7 +21,7 @@ const Stroke = () => (
     </svg>
   </div>);
 
-export default (props: any) => (
+const TheHeader = (props: any) => (
   <section className={`mainpage-section1-back ${props.HeadStyle === 'inner' ? ' innerpage-section1' : ''}`}>
     <div className="container">
       <div className="row">
@@ -26,8 +29,9 @@ export default (props: any) => (
           <img src="/static/images/logo.png" alt="" title="" />
         </div>
         <div className="login-register">
-          <div className="register" />
-          <div className="login" />
+          <div onClick={props.inc} className="register" />
+            {props.count}
+          <div onClick={props.dec} className="login" />
         </div>
       </div>
     </div>
@@ -38,3 +42,22 @@ export default (props: any) => (
     {props.HeadStyle === 'inner' ? '' : <Stroke />}
   </section>
 );
+
+const mapStateToProps = (state: any) => {
+    console.log(state);
+    return {
+        count: state.sampleReducer.count,
+    };
+};
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        inc: () => {
+            dispatch(actions.increase());
+        },
+        dec: () => {
+            dispatch(actions.decrease());
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TheHeader);
