@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SiteHeader from '../SiteTemplate';
 import HeaderHome from './HeaderHome';
 import HeaderInner from './HeaderInner';
+import User from '../../User';
 
 import * as actions from '../../../redux/sample/action';
 
@@ -33,6 +33,7 @@ const TheHeader = (props: any) => (
             {props.count}
           <div onClick={props.dec} className="login" />
         </div>
+          <User />
       </div>
     </div>
     <div className="container">
@@ -44,7 +45,6 @@ const TheHeader = (props: any) => (
 );
 
 const mapStateToProps = (state: any) => {
-    console.log(state);
     return {
         count: state.sampleReducer.count,
     };
