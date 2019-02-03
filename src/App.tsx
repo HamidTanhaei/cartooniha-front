@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomeContainer from './containers/Home';
 import VideoContainer from './containers/Video';
 import './theme/static/stylesheets/bootstrap.scss';
+import './theme/antd/index.scss';
 
 // config axios default URL
 axios.defaults.baseURL = `${process.env.RAZZLE_APP_API_BASE_PATH}${process.env.RAZZLE_APP_API_VERSION}`;

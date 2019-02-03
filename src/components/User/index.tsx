@@ -1,7 +1,8 @@
 import React from 'react';
 import { Modal, Button } from 'antd';
 
-import 'antd/es/modal/style/index.css';
+
+
 
 class User extends React.Component {
     public state = { visible: false };
@@ -19,7 +20,6 @@ class User extends React.Component {
     }
 
     public handleCancel = (e: any) => {
-        console.log(e);
         this.setState({
                           visible: false,
                       });
