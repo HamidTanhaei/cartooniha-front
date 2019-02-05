@@ -1,17 +1,14 @@
 import React from 'react';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
+import { connect } from 'react-redux';
+import * as actions from '../../redux/sample/action';
 
+interface IProp {
+    onCancel: any;
+}
 
-
-
-class User extends React.Component {
+class User extends React.Component<IProp> {
     public state = { visible: false };
-
-    public showModal = () => {
-        this.setState({
-                          visible: true,
-                      });
-    }
 
     public handleOk = (e: any) => {
         this.setState({
@@ -19,31 +16,37 @@ class User extends React.Component {
                       });
     }
 
-    public handleCancel = (e: any) => {
-        this.setState({
-                          visible: false,
-                      });
-    }
-
     public render() {
         return (
-            <div>
-                <Button type="primary" onClick={this.showModal}>
-                    Open Modal
-                </Button>
-                <Modal
-                    title="Basic Modal"
-                    visible={this.state.visible}
-                    onOk={this.handleOk}
-                    onCancel={this.handleCancel}
-                >
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                </Modal>
-            </div>
+            <Modal
+                title="Basic Modal"
+                visible={true}
+                onOk={this.handleOk}
+                onCancel={() => this.props.onCancel()}
+            >
+                <p>Login</p>
+                <p>Or Register</p>
+                <p>Or Verify</p>
+                <p>Or Forget Password</p>
+            </Modal>
         );
     }
 }
 
-export default User;
+const mapStateToProps = (state: any) => {
+    return {
+        user: state.user,
+    };
+};
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        inc: () => {
+            dispatch(actions.increase());
+        },
+        dec: () => {
+            dispatch(actions.decrease());
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(User);
