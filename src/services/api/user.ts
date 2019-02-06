@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as api from './apiRoutes';
 import * as IF from './IUser';
 
-export const checkNumberAvailability = async (phoneNumber: number) => {
+export const checkNumberAvailability = async (phoneNumber: number | string) => {
     return axios({
                      url: api.user.checkNumberAvailability,
                      method: 'post',

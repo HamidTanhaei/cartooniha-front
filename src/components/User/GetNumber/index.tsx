@@ -5,6 +5,7 @@ import {
 import { checkNumberAvailability } from '../../../services/api/user';
 import { phoneFixer } from '../../../utils';
 import { InputPhoneNumber } from '../../inputs/PhoneNumber';
+import lang from './lang';
 import './style.scss';
 
 interface IProps {
@@ -13,17 +14,18 @@ interface IProps {
     form: any;
 }
 
-class GetNumber extends React.Component <IProps>{
+class GetNumber extends React.Component <IProps> {
     public handleSubmit = (e: any) => {
         e.preventDefault();
         this.props.form.validateFields(async (err: any, values: any) => {
             if (!err) {
                 try {
-                    const data = await checkNumberAvailability(phoneFixer(values.phoneNumber));
+                    const phoneNumber = phoneFixer(values.phoneNumber);
+                    const data = await checkNumberAvailability(phoneNumber);
                     if (data.data.available) {
-                        this.props.onAvailableNumber();
+                        this.props.onAvailableNumber(phoneNumber);
                     } else {
-                        this.props.onUnavailableNumber();
+                        this.props.onUnavailableNumber(phoneNumber);
                     }
                 } catch (e) {
                     console.log(e);
@@ -36,11 +38,13 @@ class GetNumber extends React.Component <IProps>{
         const { getFieldDecorator } = this.props.form;
         return (
             <Form onSubmit={this.handleSubmit} className="check-number-availability">
-                برای ورود یا ثبت‌نام شماره تلفن همراه خود را وارد کنید
+                <div className="message">
+                    {lang.description.for} <span>{lang.description.login}</span> {lang.description.or} <span>{lang.description.register}</span> {lang.description.enterYourPhoneNumber}
+                </div>
                 <InputPhoneNumber getFieldDecorator={getFieldDecorator} />
                 <Form.Item>
-                    <Button type="primary" htmlType="submit" className="login-form-button">
-                        ادامه
+                    <Button type="primary" htmlType="submit" className="full-button">
+                        {lang.continue}
                     </Button>
                 </Form.Item>
             </Form>

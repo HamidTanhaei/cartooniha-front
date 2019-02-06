@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import HeaderHome from './HeaderHome';
 import HeaderInner from './HeaderInner';
 import User from '../../../containers/User';
+import {IUser} from '../../../interfaces/user';
 
 import * as actions from '../../../redux/sample/action';
 
@@ -21,17 +22,14 @@ const Stroke = () => (
     </svg>
   </div>);
 
-interface IProps{
-    user: {
-        loggedIn: boolean;
-        name: string;
-    };
+interface IProps {
+    user: IUser | any;
     HeadStyle: string;
     sliderData: any;
     name?: string;
 }
 
-class TheHeader extends React.Component<IProps>{
+class TheHeader extends React.Component<IProps> {
     public state = {
         isSigninSignupModal: false
     };
@@ -46,14 +44,13 @@ class TheHeader extends React.Component<IProps>{
                             <img src="/static/images/logo.png" alt="" title="" />
                         </div>
                         <div className="login-register">
-                            {props.user.loggedIn ? props.user.name : (
+                            {props.user.token ? props.user.fname : (
                                 <React.Fragment>
                                     <div onClick={() => this.setState({isSigninSignupModal: true})} className="register" />
-                                    <div onClick={props.dec} className="login" />
+                                    <div onClick={() => this.setState({isSigninSignupModal: true})} className="login" />
                                     {isSigninSignupModal && <User onCancel={() => this.setState({isSigninSignupModal: false})} />}
                                 </React.Fragment>
                             )}
-                            {props.count}
                         </div>
                     </div>
                 </div>
@@ -73,15 +70,4 @@ const mapStateToProps = (state: any) => {
         user: state.user,
     };
 };
-const mapDispatchToProps = (dispatch: any) => {
-    return {
-        inc: () => {
-            dispatch(actions.increase());
-        },
-        dec: () => {
-            dispatch(actions.decrease());
-        }
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TheHeader);
+export default connect(mapStateToProps, undefined)(TheHeader);

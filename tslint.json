@@ -2,9 +2,10 @@
   "extends": ["tslint:recommended", "tslint-react"],
   "linterOptions": {
     "exclude": [
-      "node_modules/**",
+      "node_modules",
       "src/theme/static/**",
-      "src/utils/library/**"
+      "src/utils/library/**",
+      "**/lang.ts"
     ]
   },
   "rules": {

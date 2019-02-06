@@ -4,7 +4,7 @@ export const apiVideoOtherEpisodes = (videoId: any) => (`/video/${videoId}/other
 
 export const user = {
     checkNumberAvailability: '/user/check_number_availability',
-    login:                   '/login',
-    verifySend:              '/verify_number/send',
-    verifyCheck:             '/verify_number/check'
+    login:                   '/user/login',
+    verifySend:              '/user/verify_number/send',
+    verifyCheck:             '/user/verify_number/check'
 };

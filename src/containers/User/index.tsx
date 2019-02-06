@@ -1,6 +1,9 @@
 import React from 'react';
 import { Modal } from 'antd';
 import GetNumber from '../../components/User/GetNumber';
+import Login from '../../components/User/Login';
+import lang from './lang';
+import './style.scss';
 
 interface IProps {
     onCancel: any;
@@ -9,6 +12,7 @@ interface IProps {
 
 interface IState {
     showType: 'getNumberToCheck' | 'login' | 'verifySend' | 'verifyCheck' | 'register' | 'forgetPassword';
+    phoneNumber?: string;
 }
 
 class User extends React.Component<IProps> {
@@ -16,31 +20,24 @@ class User extends React.Component<IProps> {
         showType: 'getNumberToCheck'
     };
 
-    private title = {
-        getNumberToCheck: 'ورود / عضویت',
-        login: 'ورود',
-        verifySend: 'بررسی شماره تلفن',
-        verifyCheck: 'بررسی شماره تلفن',
-        register: 'عضویت',
-        forgetPassword: 'فراموشی کلمه عبور',
-    }
-
     public render() {
-        const { showType } = this.state;
+        const { showType, phoneNumber } = this.state;
         return (
             <Modal
-                title={this.title[showType]}
+                title={lang.title[showType]}
                 visible={true}
-                onOk={() => this.props.onCancel()}
-                onCancel={() => this.props.onCancel()}
+                onOk={this.props.onCancel}
+                onCancel={this.props.onCancel}
                 footer={null}
+                className={'user-login-register-modal'}
             >
                 {showType === 'getNumberToCheck' &&
                 <GetNumber
-                    onAvailableNumber={() => this.setState({showType: 'login'})}
-                    onUnavailableNumber={() => this.setState({showType: 'verifySend'})}
+                    onAvailableNumber={(pn: string) => this.setState({showType: 'login', phoneNumber: pn})}
+                    onUnavailableNumber={(pn: string) => this.setState({showType: 'verifySend', phoneNumber: pn})}
                 />}
-                {showType === 'login' && <p>Login</p>}
+                {showType === 'login' &&
+                <Login phoneNumber={phoneNumber} closer={this.props.onCancel} />}
                 {showType === 'verifySend' && <p>Verify Send</p>}
                 {showType === 'verifyCheck' && <p>Verify Check</p>}
                 {showType === 'register' && <p>Register</p>}

@@ -1,5 +1,4 @@
 import { default as persianJs } from './library/persian';
-import { phoneNumberValid } from './validation';
 export const getVideoName = (data: any): string => {
     try {
         if (!data) {
@@ -42,8 +41,13 @@ export const phoneFixer = (phoneNumber: string): string => {
         // @ts-ignore
         phoneNumber = persianJs(phoneNumber).toEnglishNumber();
     }
-    if (`${phoneNumber}`[0] === '0') {
-        phoneNumber = `${phoneNumber}`.substr(1);
+    phoneNumber = `${phoneNumber}`;
+    if (phoneNumber[0] === '0') {
+        phoneNumber = phoneNumber.substr(1);
     }
-    return `98${phoneNumber}`;
+    if (phoneNumber.substr(0, 2) === '98') {
+        return phoneNumber;
+    } else {
+        return `98${phoneNumber}`;
+    }
 };

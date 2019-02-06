@@ -24,6 +24,7 @@
   },
   "exclude": [
     "node_modules",
+    "node_modules/@types/**",
     "build",
     "scripts",
     "acceptance-tests",
@@ -31,7 +32,8 @@
     "jest",
     "razzle.config.js",
     "src/theme/static/**",
-    "src/utils/library/**"
+    "src/utils/library/**",
+    "**/lang.ts"
   ],
   "types": ["typePatches", "node", "webpack-env"],
   "rules": {
