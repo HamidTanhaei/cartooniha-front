@@ -1,4 +1,4 @@
-export interface IUser{
+export interface IUser {
     token: string;
     fname: string;
     lname: string;

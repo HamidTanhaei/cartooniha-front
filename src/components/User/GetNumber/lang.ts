@@ -6,5 +6,6 @@ export default {
         register: 'ثبت نام',
         enterYourPhoneNumber: 'شماره تلفن همراه خود را وارد کنید',
     },
-    continue: 'ادامه'
+    continue: 'ادامه',
+    verifySendError: 'ارسال پیامک ثبت نام با خطا مواجه شد'
 }

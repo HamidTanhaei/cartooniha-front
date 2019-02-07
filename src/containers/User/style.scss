@@ -9,4 +9,20 @@
       font-weight: bold;
     }
   }
+  .ant-form-item-control-wrapper{
+    .ant-form-item-children{
+      input{
+        padding-right:30px;
+        padding-left:24px;
+      }
+      .ant-input-prefix{
+        left:auto;
+        right: 12px;
+      }
+      .ant-form-item-children-icon{
+        left:0;
+        right: auto;
+      }
+    }
+  }
 }

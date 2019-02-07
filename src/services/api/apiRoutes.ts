@@ -6,5 +6,7 @@ export const user = {
     checkNumberAvailability: '/user/check_number_availability',
     login:                   '/user/login',
     verifySend:              '/user/verify_number/send',
-    verifyCheck:             '/user/verify_number/check'
+    verifyCheck:             '/user/verify_number/check',
+    register:                '/user/register',
+    forget_password:         '/user/forget_password'
 };

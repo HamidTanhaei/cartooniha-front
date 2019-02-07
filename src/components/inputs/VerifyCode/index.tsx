@@ -13,7 +13,7 @@ interface IState {
     wrong: boolean;
     hello?: string;
 }
-export class InputPassword extends React.Component<IProps, IState> {
+export class InputVerifyCode extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
     }
@@ -23,23 +23,22 @@ export class InputPassword extends React.Component<IProps, IState> {
         const { wrong } = this.props;
         if (wrong) {
             passwordFieldProps.validateStatus = 'error';
-        } else {
-            passwordFieldProps.validateStatus = 'success';
         }
         return (
             <Form.Item
                 hasFeedback={true}
                 help={lang.help}
-                min={6}
                 {...passwordFieldProps}
             >
-                {this.props.getFieldDecorator('password', {
+                {this.props.getFieldDecorator('code', {
                     rules: [{
+                        len: 6,
                         required: true,
                         message: wrong ? lang.wrongPassMessage : lang.message,
                     }],
                 })(
-                    <Input type="password" prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} onChange={this.props.onType} placeholder={lang.help} />
+                    <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} onChange={this.props.onType} placeholder={lang.help} />
+                    // todo resend code
                 )}
             </Form.Item>
         );

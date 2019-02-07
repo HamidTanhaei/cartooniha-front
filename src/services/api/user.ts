@@ -21,9 +21,9 @@ export const login = async ({phoneNumber, password}: IF.ILogin) => {
                      )
                  });
 };
-export const verifyNumberSend = async (phoneNumber: number) => {
+export const verifyNumberSend = async (phoneNumber: string) => {
     return axios({
-                     url: api.user.login,
+                     url: api.user.verifySend,
                      method: 'post',
                      data: JSON.stringify({
                                               phone_number: phoneNumber,
@@ -33,8 +33,8 @@ export const verifyNumberSend = async (phoneNumber: number) => {
 };
 export const verifyNumberCheck = async ({phoneNumber, code}: IF.IVerifyCheck) => {
     return axios({
-                     url: api.user.login,
-                     method: 'put',
+                     url: api.user.verifyCheck,
+                     method: 'post',
                      data: JSON.stringify({
                                               phone_number: phoneNumber,
                                               code
@@ -45,7 +45,7 @@ export const verifyNumberCheck = async ({phoneNumber, code}: IF.IVerifyCheck) =>
 
 export const register = async ({token, phoneNumber, firstName, lastName, password}: IF.IRegister) => {
     return axios({
-                     url: api.user.login,
+                     url: api.user.register,
                      method: 'post',
                      data: JSON.stringify({
                                               token,
@@ -60,8 +60,8 @@ export const register = async ({token, phoneNumber, firstName, lastName, passwor
 
 export const forgetPassword = async ({token, phoneNumber, newPassword}: IF.IForgetPassword) => {
     return axios({
-                     url: api.user.login,
-                     method: 'post',
+                     url: api.user.forget_password,
+                     method: 'put',
                      data: JSON.stringify({
                                               token,
                                               phone_number: phoneNumber,

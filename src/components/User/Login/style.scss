@@ -1,7 +1,18 @@
+@import '../../../theme/static/stylesheets/bootstrap/variables';
 .login-modal{
   .password-error{
     color:red;
     text-align:center;
     padding-bottom:10px;
+  }
+  .password-field{
+    position: relative;
+    .forget-password{
+      display:inline-block;
+      position: absolute;
+      left:0;
+      bottom: 0;
+      color: $brand-primary;
+    }
   }
 }

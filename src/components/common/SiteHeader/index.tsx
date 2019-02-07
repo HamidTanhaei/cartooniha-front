@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import HeaderHome from './HeaderHome';
 import HeaderInner from './HeaderInner';
 import User from '../../../containers/User';
-import {IUser} from '../../../interfaces/user';
-
-import * as actions from '../../../redux/sample/action';
+import { IUser } from '../../../interfaces/user';
 
 const layoutStyle = {
   strokeWidth: 99,

@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-    Form, Button, Input, Icon,
+    Form, Button
 } from 'antd';
 import { connect } from 'react-redux';
 import * as actions from '../../../redux/user/action';
-import { login } from '../../../services/api/user';
+import { login, verifyNumberSend } from '../../../services/api/user';
 import { InputPhoneNumber, InputPassword } from '../../inputs';
 import lang from './lang';
 import './style.scss';
@@ -14,6 +14,7 @@ interface IProps {
     form: any;
     closer: any;
     login: any;
+    sendSmsToForgetPassword: any;
 }
 
 interface IState {
@@ -31,16 +32,22 @@ class GetNumber extends React.Component <IProps, IState> {
                 try {
                     const data = await login({phoneNumber: this.props.phoneNumber, password: values.password});
                     this.props.login(data.data);
-
-                    console.log('logged in');
-                    // update redux (save jwt and user detail)
-                    // refresh if nececcary
                     this.props.closer();
                 } catch (e) {
                     this.setState({passwordError: true});
                 }
             }
         });
+    }
+
+    public handleForget = async () => {
+        const {sendSmsToForgetPassword, phoneNumber} = this.props;
+        try {
+            await verifyNumberSend(phoneNumber);
+            sendSmsToForgetPassword();
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     public render() {
@@ -57,11 +64,16 @@ class GetNumber extends React.Component <IProps, IState> {
                     )
                 }
                 <InputPhoneNumber getFieldDecorator={getFieldDecorator} phoneNumber={this.props.phoneNumber} />
-                <InputPassword
-                    getFieldDecorator={getFieldDecorator}
-                    wrong={this.state.passwordError}
-                    onType={() => this.setState({passwordError: false})}
-                />
+                <div className="password-field">
+                    <InputPassword
+                        getFieldDecorator={getFieldDecorator}
+                        wrong={this.state.passwordError}
+                        onType={() => this.setState({passwordError: false})}
+                    />
+                    <span className="forget-password" onClick={this.handleForget}>
+                        {lang.forgetPassword}
+                    </span>
+                </div>
                 <Form.Item>
                     <Button type="primary" htmlType="submit" className="full-button">
                         {lang.continue}
@@ -74,7 +86,6 @@ class GetNumber extends React.Component <IProps, IState> {
 
 const mapStateToProps = (state: any) => {
     return {
-        count: state.sampleReducer.count,
         user: state.user,
     };
 };
@@ -87,5 +98,3 @@ const mapDispatchToProps = (dispatch: any) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form.create()(GetNumber));
-
-// export default Form.create()(GetNumber);
