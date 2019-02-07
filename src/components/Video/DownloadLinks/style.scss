@@ -1,0 +1,50 @@
+.dl-list {
+  display: block;
+  li {
+    display: block;
+    float: right;
+    width: 100%;
+    &:hover .dl-btn {
+      filter: none !important;
+      -webkit-filter: none !important;
+      -ms-filter: none !important;
+      -moz-filter: none !important;
+    }
+  }
+  .link-dl {
+    height: 33px;
+    position: relative;
+    padding-right: 40px;
+    line-height: 32px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    display: block;
+    float: right;
+    padding: 0px 50px;
+    color: #000;
+    &:before {
+      display: block;
+      content: ' ';
+      background: url(../../../theme/static/images/item-dl.png) no-repeat top;
+      width: 33px;
+      height: 33px;
+      position: absolute;
+      right: 10px;
+    }
+    &:hover:before {
+      background: url(../../../theme/static/images/item-dl-active.png) no-repeat top;
+      background-position: 2px 3px;
+    }
+    .dl-btn {
+      float: right;
+      width: 65px;
+      height: 27px;
+      background: url(../../../theme/static/images/dl.png) no-repeat top;
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      transition: all linear 0.1s;
+    }
+  }
+}

@@ -22,5 +22,6 @@ export interface IVideoOtherEpisodes {
 }
 
 export interface IVideoPage extends IVideo {
+    bookmarks: any;
     otherEpisodes: IVideoOtherEpisodes;
 }

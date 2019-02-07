@@ -6,6 +6,8 @@ import DownloadLinks from './DownloadLinks';
 import MostViews from './MostViews';
 import { getVideoEpisodeNumber, getVideoImage } from '../../utils';
 import { SingleLine, MultiLine } from '../ContentLoader';
+import './style.scss';
+import lang from './lang';
 
 import OtherEpisodesCarousel from './OtherEpisods';
 
@@ -17,9 +19,11 @@ type IProps = {
 };
 
 const loadingData = {
+  id: 100000,
   name: <SingleLine config={{width: 200, height: 15}} />,
   summary: <MultiLine config={{width: 500}} />,
   customorder: <SingleLine config={{width: 100, height: 10}} />,
+  bookmarks: {},
   otherEpisodes: {}
 };
 
@@ -45,14 +49,12 @@ class VideoPage extends React.Component<IProps> {
 
     return (
       <Layout HeadStyle="inner">
-        <section className="innerpage-section2">
+        <section className="innerpage-section2 video-single">
           <div className="background">
             <div className="container">
               <div className="row my-wrapper">
-                <img className="bg-img-1" src="http://127.0.0.1:3000/static/images/Vector%20Smart%20Object.png" />
-                <img className="bg-img-2" src="http://127.0.0.1:3000/static/images/Vector%20Smart%20Object1.png" />
                 <MostViews />
-                <div className="col-xs-12 col-sm-12 col-md-8 col-lg-9">
+                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-9">
                   <div className="player">
                     <video
                       width="100%"
@@ -60,12 +62,21 @@ class VideoPage extends React.Component<IProps> {
                       className="video-js vjs-default-skin"
                       controls={true}
                       preload="none"
-                      poster={getVideoImage(info)}
+                      poster={getVideoImage(info.id)}
                       data-setup="{}"
                     />
                   </div>
                   <div className="likers">
-                    309 نفر این کارتون را دوست دارند
+                    {info.bookmarks.length && info.bookmarks.length <= 5 && info.bookmarks.map((person: any, i: number) => {
+                      const divider = i < info.bookmarks.length - 1 && ' - ';
+                      return (
+                          <React.Fragment key={i}>
+                            <span>{person.user.first_name} {person.user.last_name}</span>
+                            {divider}
+                          </React.Fragment>
+                      );
+                    })}
+                    {info.bookmarks.length && info.bookmarks.length > 5 && `${info.bookmarks.length} ${lang.totalBookmarkers}`}
                   </div>
                   <div className="video-buttons">
                     <a href="#" className="video-opt">
@@ -79,7 +90,10 @@ class VideoPage extends React.Component<IProps> {
                     </a>
                   </div>
                   <div className="likers-name">
-                    صبا احدپور-  صبا احدپور- شیلان جلالی - مریم مرادی - نیوشا توکلیان - وفا - مهرداد افسری - علی احمدپور - نازیلا اسدپور آذر - شهاب محمدی - مریلا - علی - صمد پورمرادی
+                    {info.bookmarks.length && info.bookmarks.length > 5 && info.bookmarks.map((person: any, i: number) => {
+                      const divider = i < info.bookmarks.length - 1 && ' - ';
+                      return `${person.user.first_name} ${person.user.last_name}${divider}`;
+                    })}
                   </div>
                   <hr className="hr-dotted" />
                   <div className="video-info">

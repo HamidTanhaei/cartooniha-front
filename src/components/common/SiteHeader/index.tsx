@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../../redux/user/action';
 import HeaderHome from './HeaderHome';
 import HeaderInner from './HeaderInner';
 import User from '../../../containers/User';
 import { IUser } from '../../../interfaces/user';
+import lang from './lang';
 
 const layoutStyle = {
   strokeWidth: 99,
@@ -25,6 +27,7 @@ interface IProps {
     HeadStyle: string;
     sliderData: any;
     name?: string;
+    logout?: any;
 }
 
 class TheHeader extends React.Component<IProps> {
@@ -42,7 +45,16 @@ class TheHeader extends React.Component<IProps> {
                             <img src="/static/images/logo.png" alt="" title="" />
                         </div>
                         <div className="login-register">
-                            {props.user.token ? props.user.fname : (
+                            {props.user.token ? (
+                                <div className="button-group-fantasy">
+                                    <div className="button-fantasy gray" onClick={this.props.logout}>
+                                        {lang.logout}
+                                    </div>
+                                    <div className="button-fantasy yellow">
+                                        {lang.profile} {props.user.fname}
+                                    </div>
+                                </div>
+                            ) : (
                                 <React.Fragment>
                                     <div onClick={() => this.setState({isSigninSignupModal: true})} className="register" />
                                     <div onClick={() => this.setState({isSigninSignupModal: true})} className="login" />
@@ -68,4 +80,13 @@ const mapStateToProps = (state: any) => {
         user: state.user,
     };
 };
-export default connect(mapStateToProps, undefined)(TheHeader);
+
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        logout: (data: any) => {
+            dispatch(actions.logout());
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TheHeader);

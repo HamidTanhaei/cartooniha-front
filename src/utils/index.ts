@@ -25,9 +25,9 @@ export const getVideoEpisodeNumber = (data: any): string => {
     }
 };
 
-export const getVideoImage = (data: any): string => {
+export const getVideoImage = (id: any): string => {
     try {
-        return process.env.RAZZLE_APP_IMAGES_PATH + '/CartoonsImage/' + data.id + '/player-493x301.jpg';
+        return process.env.RAZZLE_APP_IMAGES_PATH + '/CartoonsImage/' + id + '/player-493x301.jpg';
     } catch (e) {
         console.log('getVideoImage error:', e);
         return '';

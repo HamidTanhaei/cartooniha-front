@@ -1,7 +1,8 @@
 import React from 'react';
+import './style.scss';
 
 export default () => (
-  <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+  <div className="col-lg-3 hidden-sm hidden-xs hidden-md most-viewed">
     <div className="top-view-title">
       پر بیننده ترین ویدئوها
     </div>

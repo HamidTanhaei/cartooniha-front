@@ -1,0 +1,25 @@
+.button-group-fantasy{
+  display: flex;
+}
+.button-fantasy{
+  cursor:pointer;
+  padding: 8px 17px 10px 17px;
+  margin-right: 1px;
+  margin-left:1px;
+  font-size: 14px;
+  border-radius: 5px;
+  &:last-child{
+    border-radius: 18px 5px 5px 15px !important;
+  }
+  &:first-child{
+    border-radius: 5px 18px 15px 5px !important;
+  }
+  &.yellow{
+    background: #fbbd27;
+    box-shadow: 1px 2px 0 #be6f07;
+  }
+  &.gray{
+   background: #aaabaa;
+   box-shadow: 1px 2px 0 #868686;
+  }
+}

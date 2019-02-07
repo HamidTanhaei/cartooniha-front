@@ -1,14 +1,14 @@
 import axios from 'axios';
-import { apiVideoInfo, apiVideoOtherEpisodes } from './apiRoutes';
+import { video } from './apiRoutes';
 export default class VideoApi {
     public get = async (videoId: number) => {
         return axios({
-                         url: apiVideoInfo(videoId),
+                         url: video.singleVideo(videoId),
                      });
     }
     public otherEpisodes = async (videoId: number) => {
         return axios({
-                         url: apiVideoOtherEpisodes(videoId),
+                         url: video.otherEpisodes(videoId),
                      });
     }
 }

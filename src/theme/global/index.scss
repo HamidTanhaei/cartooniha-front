@@ -1,1 +1,15 @@
 @import './buttons';
+
+
+.owlslidermp{
+  .owl-dots {
+    text-align: center;
+    padding-top: 0px;
+  }
+  .owl-dot {
+    background: #eee;
+  }
+  .owl-dot.active {
+    background: #bfbfbf;
+  }
+}

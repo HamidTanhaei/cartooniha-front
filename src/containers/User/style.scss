@@ -1,4 +1,8 @@
 .user-login-register-modal{
+  .ant-modal-content{
+    border-radius: 20px; -webkit-box-shadow: 1px 3px 0 #cdccc6 !important; box-shadow: 1px 3px 0 #cdccc6 !important;
+    overflow: hidden;
+  }
   .full-button{
     width:100%;
   }

@@ -1,6 +1,4 @@
 export const apiMainPage = '/mainPage/';
-export const apiVideoInfo = (videoId: any) => (`/video/${videoId}`);
-export const apiVideoOtherEpisodes = (videoId: any) => (`/video/${videoId}/other-episodes`);
 
 export const user = {
     checkNumberAvailability: '/user/check_number_availability',
@@ -9,4 +7,8 @@ export const user = {
     verifyCheck:             '/user/verify_number/check',
     register:                '/user/register',
     forget_password:         '/user/forget_password'
+};
+export const video = {
+    singleVideo:             (videoId: any) => (`/video/single/${videoId}`),
+    otherEpisodes:           (videoId: any) => (`/video/${videoId}/other-episodes`),
 };

@@ -1,7 +1,14 @@
 import React from 'react';
+import './style.scss';
 
 export default () => (
     <section className="footer">
+        <div className="trees">
+            <div className="inner">
+                <img className="bg-img-1" src="http://127.0.0.1:3000/static/images/Vector%20Smart%20Object.png" />
+                <img className="bg-img-2" src="http://127.0.0.1:3000/static/images/Vector%20Smart%20Object1.png" />
+            </div>
+        </div>
         <div className="container">
             <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3">
