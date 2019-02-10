@@ -12,3 +12,14 @@ export const video = {
     singleVideo:             (videoId: any) => (`/video/single/${videoId}`),
     otherEpisodes:           (videoId: any) => (`/video/${videoId}/other-episodes`),
 };
+
+export const bookmark = {
+    add:                    (videoId: number) => `/bookmark/${videoId}`,
+    remove:                 (videoId: number) => `/bookmark/${videoId}`,
+    list:                   `/bookmark/list`
+};
+
+export const comment = {
+    videoList:              (videoId: any) => (`/comment/video/${videoId}`),
+    videoAdd:               (videoId: any) => (`/comment/video/${videoId}`),
+};

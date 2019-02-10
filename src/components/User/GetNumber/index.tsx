@@ -21,7 +21,7 @@ interface IState {
 class GetNumber extends React.Component <IProps, IState> {
     public state: IState = {
         error: false
-    }
+    };
     public handleSubmit = (e: any) => {
         e.preventDefault();
         this.props.form.validateFields(async (err: any, values: any) => {

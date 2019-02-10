@@ -1,0 +1,116 @@
+.video-comment{
+  .comments-wrapper {
+    padding: 20px 0px;
+  }
+  .media-right a img {
+    width: 70px;
+  }
+  .media-heading {
+    font-size: 22px;
+    span {
+      padding-right:5px;
+      color: #8e8e8e;
+      font-size: 14px;
+    }
+  }
+  .media-right {
+    padding-left: 30px;
+  }
+
+  .media-body {
+    text-align: justify;
+  }
+  .comment-title {
+    height: 33px;
+    position: relative;
+    padding-right: 40px;
+    line-height: 32px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    &:before {
+      display: block;
+      content: ' ';
+      background: url(../../../theme/static/images/cm-title.png) no-repeat top;
+      width: 34px;
+      height: 36px;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .media {
+    padding: 20px 0px 10px;
+    position: relative;
+    &:after {
+      content: "";
+      border-bottom: 1px dashed #cbcbcb;
+      position: absolute;
+      width: 100%;
+      top: 0px;
+    }
+  }
+
+  .comments-wrapper .cm-wrapper:nth-child(2) .media:after {
+    display: none;
+  }
+
+  .comments-wrapper .cm-wrapper:nth-child(3) .media:after {
+    display: none;
+  }
+
+
+  .replay-btn {
+    float: left;
+    width: 26px;
+    height: 26px;
+    background: url(../../../theme/static/images/replay-btn.png) no-repeat top;
+    h4 {
+      margin-bottom: 10px;
+    }
+  }
+  .wr-cm .media-right {
+    padding-left: 18px;
+  }
+
+  .wr-cm .media-body {
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+    padding: 20px 20px 5px 5px;
+    border-radius: 10px;
+    position: relative;
+    .error{
+      color:red;
+    }
+    .success{
+      color: green;
+      padding: 6px 0;
+      text-align: left;
+      display: block;
+    }
+  }
+
+  .wr-cm .wr-arrow {
+    background: url(../../../theme/static/images/span-cm.png) no-repeat top;
+    position: absolute;
+    right: 60px;
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .send {
+    text-align: left;
+    .button{
+      display: inline-block;
+      width: 65px;
+      height: 27px;
+      background: url(../../../theme/static/images/send.png) no-repeat top;
+    }
+  }
+
+  .my-cm {
+    border: 0px none;
+    width: 100%;
+    height: 30px;
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import { IVideoPage } from '../interfaces/video';
-import MovieComponent from '../components/Video';
-import VideoApi from '../services/api/video';
+import { IVideoPage } from '../../interfaces/video';
+import MovieComponent from '../../components/Video';
+import VideoApi from '../../services/api/video';
 
 interface IMatchInterface {
     params: any;

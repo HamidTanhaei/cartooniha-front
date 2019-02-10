@@ -1,11 +1,12 @@
 import React from 'react';
 import { IVideoPage } from '../../interfaces/video';
 import Layout from '../common/SiteTemplate';
-import CommentsList from './CommentsList';
+import Comment from './Comment';
 import DownloadLinks from './DownloadLinks';
 import MostViews from './MostViews';
-import { getVideoEpisodeNumber, getVideoImage } from '../../utils';
+import BookmarkContainer from '../../containers/Video/Bookmark';
 import { SingleLine, MultiLine } from '../ContentLoader';
+import { getVideoEpisodeNumber, getVideoImage } from '../../utils';
 import './style.scss';
 import lang from './lang';
 
@@ -24,7 +25,8 @@ const loadingData = {
   summary: <MultiLine config={{width: 500}} />,
   customorder: <SingleLine config={{width: 100, height: 10}} />,
   bookmarks: {},
-  otherEpisodes: {}
+  otherEpisodes: {},
+  bookmarked: false
 };
 
 class VideoPage extends React.Component<IProps> {
@@ -79,15 +81,15 @@ class VideoPage extends React.Component<IProps> {
                     {info.bookmarks.length && info.bookmarks.length > 5 && `${info.bookmarks.length} ${lang.totalBookmarkers}`}
                   </div>
                   <div className="video-buttons">
-                    <a href="#" className="video-opt">
-                      <img src="http://127.0.0.1:3000/static/images/likee.png" />
-                    </a>
-                    <a href="#" className="video-opt">
+                    <span className="video-opt">
+                      <BookmarkContainer bookmarked={info.bookmarked} id={info.id} />
+                    </span>
+                    <span className="video-opt">
                       <img src="http://127.0.0.1:3000/static/images/comment.png" />
-                    </a>
-                    <a href="#" className="video-opt">
+                    </span>
+                    <span className="video-opt">
                       <img src="http://127.0.0.1:3000/static/images/replay.png" />
-                    </a>
+                    </span>
                   </div>
                   <div className="likers-name">
                     {info.bookmarks.length && info.bookmarks.length > 5 && info.bookmarks.map((person: any, i: number) => {
@@ -142,28 +144,7 @@ class VideoPage extends React.Component<IProps> {
 
                   </div>
                   <div className="comments-wrapper">
-                    <div className="comment-title">
-                      ارسال نظرات
-                    </div>
-                    <div className="cm-wrapper">
-                      <div className="media wr-cm">
-                        <div className="media-right media-bottom">
-                          <a href="#">
-                            <img className="media-object img img-respansive img-circle" src="http://127.0.0.1:3000/static/images/userimage-simple.png" alt="..." />
-                          </a>
-                          <span className="wr-arrow" />
-                        </div>
-                        <div className="media-body">
-                          <h4 className="media-heading">
-                            علی
-                          </h4>
-                          <input className="my-cm" placeholder="نظرتو درباره این ویدئو بنویس..." type="text" />
-                          <br />
-                          <a href="#" className="send-btn" />
-                        </div>
-                      </div>
-                    </div>
-                    <CommentsList />
+                    {!this.props.loading && <Comment videoId={info.id}/>}
                   </div>
                 </div>
               </div>
