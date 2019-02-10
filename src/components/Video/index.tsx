@@ -106,9 +106,9 @@ class VideoPage extends React.Component<IProps> {
                             {episodeNumber}
                         </span>
                       </h3>
-                      <div className="top-view-count">
+                      {/*<div className="top-view-count">
                         405 بازدید
-                      </div>
+                      </div>*/}
                       <div className="clear" />
                     </div>
                     <div className="video-info-des">
