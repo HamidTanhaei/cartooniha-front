@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { getVideoEpisodeNumber, getVideoImage } from '../../utils';
 import { IVideoOtherEpisodes } from '../../interfaces/video';
@@ -13,7 +14,7 @@ function Item(props: any) {
   const data: IVideoOtherEpisodes = props.data;
   return (
     <div className="item">
-      <a href="#">
+      <Link to={'/video/' + data.id}>
         <ImgPlaceHolder
             src={getVideoImage(data.id)}
             alt={data.name}
@@ -24,7 +25,7 @@ function Item(props: any) {
           <br />
         ({getVideoEpisodeNumber(data)})
         </h3>
-      </a>
+      </Link>
     </div>);
 }
 
@@ -33,17 +34,17 @@ class OtherEpisodesCarousel extends React.Component<IProps> {
     const { loading, episodes } = this.props;
     const settings = {
       dots: true,
-      infinite: true,
+      infinite: Object.keys(episodes).length > 5,
       speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 5,
+      slidesToShow: Object.keys(episodes).length >= 5 ? 5 : 1,
+      slidesToScroll: Object.keys(episodes).length >= 5 ? 5 : 1,
       arrows: false,
       responsive: [
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
+            slidesToShow: Object.keys(episodes).length >= 2 ? 2 : 1,
+            slidesToScroll: Object.keys(episodes).length >= 2 ? 2 : 1,
           },
         },
         {

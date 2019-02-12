@@ -11,19 +11,22 @@ interface IProps {
 class Carousel extends React.Component<IProps> {
   public render() {
     const { data } = this.props;
+    if (!data) {
+      return (<div>loading...</div>);
+    }
     const settings = {
       dots: true,
-      infinite: true,
+      infinite: Object.keys(data).length > 3,
       speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 3,
+      slidesToShow: Object.keys(data).length >= 3 ? 3 : 1,
+      slidesToScroll: Object.keys(data).length >= 3 ? 3 : 1,
       arrows: false,
       responsive: [
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
+            slidesToShow: Object.keys(data).length >= 2 ? 2 : 1,
+            slidesToScroll: Object.keys(data).length >= 2 ? 2 : 1,
           },
         },
         {
@@ -36,13 +39,13 @@ class Carousel extends React.Component<IProps> {
     };
     return (
         <Slider {...settings}>
-          {data ? Object.keys(data).map((key) => {
+          {Object.keys(data).map((key) => {
             return (
                 <div key={key}>
                   <VideoCard data={data[key]} />
                 </div>
             );
-          }) : <div>loading...</div>}
+          })}
         </Slider>
     );
   }

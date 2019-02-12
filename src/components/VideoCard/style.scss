@@ -14,13 +14,17 @@
     }
   }
   .cartoon-title{text-align:center; padding-top:5px; padding-bottom:5px;}
-  .rates{
-    width:87px; float:left; text-align:center; font-size:12px; padding-top:3px;
-    .stars{text-align:left; height:16px;}
-    img{width:auto; display:inline-block;}
+  .detail{
+    display:flex;
+    flex-direction: row-reverse;
+    .rates{
+      width:87px; text-align:center; font-size:12px; padding-top:3px;
+      .stars{text-align:left; height:16px;}
+      img{width:auto; display:inline-block;}
+    }
+    .like{width:85px; text-align:center; position:relative; padding-top:19px; font-size:12px;}
+    .like:before{position:absolute; top:4px; right:0; content:' '; background:url(../images/like.png) no-repeat center; width:85px; height:15px;}
+    .views{width:50px; text-align:center; position:relative; padding-top:19px; font-size:12px;}
+    .views:before{position:absolute; top:0; left:0; content:' '; background:url(../images/views.png) no-repeat center; width:50px; height:23px;}
   }
-  .like{width:85px; float:left; text-align:center; position:relative; padding-top:19px; font-size:12px;}
-  .like:before{position:absolute; top:4px; right:0; content:' '; background:url(../images/like.png) no-repeat center; width:85px; height:15px;}
-  .views{width:50px; float:right; text-align:center; position:relative; padding-top:19px; font-size:12px;}
-  .views:before{position:absolute; top:0; content:' '; background:url(../images/views.png) no-repeat center; width:50px; height:23px;}
 }

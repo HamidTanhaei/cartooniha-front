@@ -25,23 +25,25 @@ class VideoCard extends React.Component<IProps> {
                     <div className="cartoon-title">
                         {getVideoName(data)}
                     </div>
-                    <div className="rates">
-                        <div className="stars">
-                            <img src={starIcon} />
-                            <img src={starIcon} />
-                            <img src={starIcon} />
-                            <img src={starIcon} />
-                            <img src={starIcon} />
+                    <div className="detail">
+                        <div className="rates">
+                            <div className="stars">
+                                <img src={starIcon} />
+                                <img src={starIcon} />
+                                <img src={starIcon} />
+                                <img src={starIcon} />
+                                <img src={starIcon} />
+                            </div>
+                            {/*todo rater*/}
+                            25 رای
                         </div>
-                        {/*todo rater*/}
-                        25 رای
-                    </div>
-                    <div className="like">
-                        {/*todo lover*/}
-                        309 نفر
-                    </div>
-                    <div className="views">
-                        {data.viewed} نفر
+                        <div className="like">
+                            {/*todo lover*/}
+                            309 نفر
+                        </div>
+                        <div className="views">
+                            {data.viewed} نفر
+                        </div>
                     </div>
                     <div className="clear"/>
                 </Link>
