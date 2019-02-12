@@ -12,6 +12,7 @@ export interface IVideo {
     rating: number;
     viewed: number;
     video_category: IVideoCategory;
+    ext_fieldsD: string;
 }
 
 export interface IVideoOtherEpisodes {

@@ -20,13 +20,14 @@ type IProps = {
 };
 
 const loadingData = {
-  id: 100000,
-  name: <SingleLine config={{width: 200, height: 15}} />,
-  summary: <MultiLine config={{width: 500}} />,
-  customorder: <SingleLine config={{width: 100, height: 10}} />,
-  bookmarks: {},
-  otherEpisodes: {},
-  bookmarked: false
+    id: 100000,
+    name: <SingleLine config={{width: 200, height: 15}} />,
+    summary: <MultiLine config={{width: 500}} />,
+    customorder: <SingleLine config={{width: 100, height: 10}} />,
+    bookmarks: {},
+    otherEpisodes: {},
+    bookmarked: false,
+    ext_fieldsD: ''
 };
 
 class VideoPage extends React.Component<IProps> {
@@ -99,7 +100,7 @@ class VideoPage extends React.Component<IProps> {
                   </div>
                   <hr className="hr-dotted" />
                   <div className="video-info">
-                    <div className="video-info-title">
+                    <div className="title">
                       <h3>
                         {info.name}
                         <span>
@@ -111,8 +112,10 @@ class VideoPage extends React.Component<IProps> {
                       </div>*/}
                       <div className="clear" />
                     </div>
-                    <div className="video-info-des">
-                      {info.summary}
+                    <div className="summary">
+                      <p>
+                        {info.summary}
+                      </p>
                     </div>
                   </div>
                   <div className="video-tabs">
@@ -138,7 +141,7 @@ class VideoPage extends React.Component<IProps> {
                           </div>
                       )}
                       <div className={`tab-pane ${(this.state.navTabActiveType === 1 || !Object.keys(info.otherEpisodes).length) ? ' active' : ''}`}>
-                        <DownloadLinks />
+                        <DownloadLinks linkString={info.ext_fieldsD} />
                       </div>
                     </div>
 

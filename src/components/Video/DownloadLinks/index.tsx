@@ -1,29 +1,34 @@
 import React from 'react';
+import './style.scss';
 
-export default () => (
-  <ul className="dl-list">
-    <li>
-      <a href="#" className="link-dl col-xs-12 col-sm-6 col-md-5 col-lg-4">
-      لینک دانلود مستقیم انیمیشن
-      </a>
-      <a href="#" className="dl-btn hidden-xs col-sm-6 col-md-7 col-lg-8" />
-    </li>
-    <li>
-      <a href="#" className="link-dl col-xs-12 col-sm-6 col-md-5 col-lg-4">
-      لینک دانلود مستقیم انیمیشن
-      </a>
-      <a href="#" className="dl-btn hidden-xs col-sm-6 col-md-7 col-lg-8" />
-    </li>
-    <li>
-      <a href="#" className="link-dl col-xs-12 col-sm-6 col-md-5 col-lg-4">
-      لینک دانلود مستقیم انیمیشن
-      </a>
-      <a href="#" className="dl-btn hidden-xs col-sm-6 col-md-7 col-lg-8" />
-    </li>
-    <li>
-      <a href="#" className="link-dl col-xs-12 col-sm-6 col-md-5 col-lg-4">
-      لینک دانلود مستقیم انیمیشن
-      </a>
-      <a href="#" className="dl-btn hidden-xs col-sm-6 col-md-7 col-lg-8" />
-    </li>
-  </ul>);
+interface IProps {
+    linkString: string;
+}
+
+class DownloadLinks extends React.Component<IProps> {
+    public render() {
+        const { linkString } = this.props;
+
+        return (
+            <ul className="dl-list">
+                {linkString && linkString.split('|||').map((item, key) => {
+                    if (item) {
+                        const current = item.split('###');
+                        return (
+                            <li key={key}>
+                                <a href={current[1]} target="_blank" className="link-dl">
+                                    {current[0]}
+                                </a>
+                                <a href={current[1]} target="_blank" className="dl-btn hidden-xs" />
+                            </li>
+                        );
+                    } else {
+                                return '';
+                    }
+
+                })}
+            </ul>);
+    }
+}
+
+export default DownloadLinks;

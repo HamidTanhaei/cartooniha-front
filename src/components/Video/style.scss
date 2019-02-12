@@ -48,22 +48,22 @@
     margin: 25px 0px;
   }
   .video-info {
-    float: right;
     width: 100%;
     margin-bottom: 25px;
-    .video-info-title h3 {
-      float: right;
-      margin: 0px;
-      text-transform: uppercase;
+    .title{
+      h3 {
+        float: right;
+        margin: 0px;
+        text-transform: uppercase;
+        span {
+          font-size: 16px;
+        }
+      }
+      div {
+        float: left;
+      }
     }
-    .video-info-title h3 span {
-      font-size: 16px;
-    }
-    .video-info-title div {
-      float: left;
-    }
-    .video-info-des {}
-    .video-info-des p {
+    .summary p {
       color: #474747;
       text-align: justify;
       line-height: 30px;
