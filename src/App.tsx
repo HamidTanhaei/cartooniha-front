@@ -15,7 +15,7 @@ interface IProps {
     token?: string | undefined;
 }
 
-class App extends React.Component<IProps> {
+class Routes extends React.Component<IProps> {
     public state = {
         token: this.props.token,
     };
@@ -37,10 +37,10 @@ class App extends React.Component<IProps> {
 
     public render() {
         return(
-            <Switch>
+            <React.Fragment>
                 <Route exact={true} path="/" component={HomeContainer} />
                 <Route exact={true} path="/video/:id" component={VideoContainer} />
-            </Switch>
+            </React.Fragment>
         );
     }
 }
@@ -51,4 +51,10 @@ const mapStateToProps = (state: any) => {
     };
 };
 
-export default connect(mapStateToProps, undefined)(App);
+const Application = connect(mapStateToProps, undefined)(Routes);
+
+export default () => (
+    <Switch>
+        <Application />
+    </Switch>
+);

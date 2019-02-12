@@ -15,7 +15,7 @@ function Item(props: any) {
     <div className="item">
       <a href="#">
         <ImgPlaceHolder
-            src={getVideoImage(data)}
+            src={getVideoImage(data.id)}
             alt={data.name}
             className="tab-c-img"
         />

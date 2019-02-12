@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ImgPlaceHolder from '../ImgPlaceHolder';
 import { IVideo } from '../../interfaces/video';
 import { getVideoName, getVideoImage } from '../../utils';
-
+import './style.scss';
 import starIcon from '../../theme/static/images/star-off.png';
-import { Link } from 'react-router-dom';
 
 interface IProps {
     data: IVideo;
@@ -14,13 +14,14 @@ class VideoCard extends React.Component<IProps> {
     public render() {
         const {data} = this.props;
         return (
-            <div className="item">
+            <div className="video-card">
                 <Link to={'/video/' + data.id}>
-                    <ImgPlaceHolder
-                        src={getVideoImage(data)}
-                        alt={data.name}
-                        className="cartoon-image"
-                    />
+                    <div className="cartoon-image">
+                        <ImgPlaceHolder
+                            src={getVideoImage(data.id)}
+                            alt={data.name}
+                        />
+                    </div>
                     <div className="cartoon-title">
                         {getVideoName(data)}
                     </div>

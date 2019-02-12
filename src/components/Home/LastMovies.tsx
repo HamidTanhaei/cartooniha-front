@@ -29,7 +29,7 @@ export default (props: any) => {
                             </div>
                         </div>
                     </div>
-                    <div className="row row2">
+                    <div className="row list">
                         <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3">
                             <img src="http://127.0.0.1:3000/static/images/monster-red.png"/>
                         </div>

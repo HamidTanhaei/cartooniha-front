@@ -100,16 +100,6 @@ a:hover{text-decoration:none;}
 
 
 .movies-list{
-    .item{background:#fff; padding:7px; padding-bottom:15px; border-radius:20px;}
-    .item img.cartoon-image{border-radius:15px; height:200px; width:100%;}
-    .item .cartoon-title{text-align:center; padding-top:5px; padding-bottom:5px;}
-    .item .rates{width:87px; float:left; text-align:center; font-size:12px; padding-top:3px;}
-    .item .rates .stars{text-align:left; height:16px;}
-    .item .rates img{width:auto; display:inline-block;}
-    .item .like{width:85px; float:left; text-align:center; position:relative; padding-top:19px; font-size:12px;}
-    .item .like:before{position:absolute; top:4px; right:0; content:' '; background:url(../images/like.png) no-repeat center; width:85px; height:15px;}
-    .item .views{width:50px; float:right; text-align:center; position:relative; padding-top:19px; font-size:12px;}
-    .item .views:before{position:absolute; top:0; content:' '; background:url(../images/views.png) no-repeat center; width:50px; height:23px;}
     .owl-dot {background: rgba(255, 255, 255, 0.7); border-radius: 4px; display: inline-block; height: 8px; margin-left: 5px; width: 8px;}
     .owl-dots{text-align:center; padding-top:20px;}
 }
@@ -143,21 +133,32 @@ a:hover{text-decoration:none;}
 .mainpage-section5 .title .filter{width:156px; background:#fff url(../images/filter.png) no-repeat left 3px top 0; float:left; padding:8px 10px 8px 35px; font-size:16px;}
 .mainpage-section5 .monster{width:236px; height:275px; background:url(../images/monster4.png) no-repeat bottom; margin-top:170px;}
 
-.mainpage-section6{background:#f2f1eb url(../images/background-white.png) no-repeat left 40px top 40px; padding-top:40px;}
-.mainpage-section6 .back2{background:url(../images/background-white2.png) no-repeat center;}
-.mainpage-section6 .title{font-size:22px; padding-bottom:40px; padding-top:40px; color:#000;}
-.mainpage-section6 .item{margin-bottom:40px;}
-.mainpage-section6 .title .filter{background:#fff; display:inline-block; float:left; font-size:15px; padding-right:10px}
-.mainpage-section6 .title .filter .fitem{display:inline-block; padding:10px;}
-.mainpage-section6 .title .filter .fitem.quality{background:url(../images/filtem-quality.png) no-repeat right; padding-right:40px;}
-.mainpage-section6 .title .filter .fitem.type{background:url(../images/filtem-type.png) no-repeat right; padding-right:40px; margin-right:10px;}
-
-.mainpage-section6 .trees{position:relative; z-index:6;}
-.mainpage-section6 .trees:before{display:block; content:' '; position:absolute; background:rgba(0, 0, 0, 0) url("../images/tree-footer-right.png") no-repeat scroll 10px 0; width:89px; height:87px; right:0; top:-61px; z-index:5;}
-.mainpage-section6 .trees:after{display:block; content:' '; position:absolute; background: url("../images/tree-footer-left.png") no-repeat scroll -10px 7px; width:75px; height:89px; left:0; top:-24px;}
-@media  (max-width: 1100px) {
-    .mainpage-section6 .trees:before { top: -45px; }
+.mainpage-section6{
+    background:#f2f1eb url(../images/background-white.png) no-repeat left 40px top 40px; padding-top:40px;
+    .back2{background:url(../images/background-white2.png) no-repeat center;}
+    .title{font-size:22px; padding-bottom:40px; padding-top:40px; color:#000;}
+    .item{margin-bottom:40px;}
+    .title .filter{background:#fff; display:inline-block; float:left; font-size:15px; padding-right:10px}
+    .title .filter .fitem{display:inline-block; padding:10px;}
+    .title .filter .fitem.quality{background:url(../images/filtem-quality.png) no-repeat right; padding-right:40px;}
+    .title .filter .fitem.type{background:url(../images/filtem-type.png) no-repeat right; padding-right:40px; margin-right:10px;}
+    .trees{position:relative; z-index:6;}
+    .trees:before{display:block; content:' '; position:absolute; background:rgba(0, 0, 0, 0) url("../images/tree-footer-right.png") no-repeat scroll 10px 0; width:89px; height:87px; right:0; top:-61px; z-index:5;}
+    .trees:after{display:block; content:' '; position:absolute; background: url("../images/tree-footer-left.png") no-repeat scroll -10px 7px; width:75px; height:89px; left:0; top:-24px;}
+    @media (max-width: 1100px) {
+        .trees:before { top: -45px; }
+    }
+    .list{
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        .video-card{
+            margin:5px 0;
+        }
+    }
 }
+
+
 
 
 /************************************ InnerPage ************************************/
