@@ -41,6 +41,10 @@ class VideoPage extends React.Component<IProps> {
     this.setState({ navTabActiveType: type });
   }
 
+  public async componentDidMount() {
+    console.log('inner compontet mounted');
+  }
+
   public render() {
     const info = this.props.loading ? loadingData : this.props.pageData;
 
