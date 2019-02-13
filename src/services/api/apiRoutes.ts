@@ -10,7 +10,7 @@ export const user = {
 };
 export const video = {
     singleVideo:             (videoId: any) => (`/video/single/${videoId}`),
-    otherEpisodes:           (videoId: any) => (`/video/${videoId}/other-episodes`),
+    videosByMainCategory:    (videoId: any) => (`/video/main_category/${videoId}`),
 };
 
 export const bookmark = {
@@ -22,4 +22,8 @@ export const bookmark = {
 export const comment = {
     videoList:              (videoId: any) => (`/comment/video/${videoId}`),
     videoAdd:               (videoId: any) => (`/comment/video/${videoId}`),
+};
+
+export const tag = {
+    videosByTags:           (tags: string, limit: number = 10, offset: number = 0) => (`/tag/related/video?tags=${tags}&limit=${limit}&offset=${offset}`),
 };

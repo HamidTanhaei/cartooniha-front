@@ -6,9 +6,9 @@ export default class VideoApi {
                          url: video.singleVideo(videoId),
                      });
     }
-    public otherEpisodes = async (videoId: number) => {
+    public videosByMainCategory = async (videoId: number) => {
         return axios({
-                         url: video.otherEpisodes(videoId),
+                         url: video.videosByMainCategory(videoId),
                      });
     }
 }

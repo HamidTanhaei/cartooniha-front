@@ -3,7 +3,7 @@ import { IVideoPage } from '../../interfaces/video';
 import Layout from '../common/SiteTemplate';
 import Comment from './Comment';
 import DownloadLinks from './DownloadLinks';
-import MostViews from './MostViews';
+import MostViewsContainer from '../../containers/Video/RelatedVideos';
 import BookmarkContainer from '../../containers/Video/Bookmark';
 import { SingleLine, MultiLine } from '../ContentLoader';
 import { getVideoEpisodeNumber, getVideoImage } from '../../utils';
@@ -27,7 +27,9 @@ const loadingData = {
     bookmarks: {},
     otherEpisodes: {},
     bookmarked: false,
-    ext_fieldsD: ''
+    ext_fieldsD: '',
+    gener: '',
+    video_category: {gener: '', video_maincat: {mc_id: 0}}
 };
 
 class VideoPage extends React.Component<IProps> {
@@ -56,7 +58,7 @@ class VideoPage extends React.Component<IProps> {
           <div className="background">
             <div className="container">
               <div className="row my-wrapper">
-                <MostViews />
+                {!this.props.loading && <MostViewsContainer tags={info.video_category.gener} />}
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-9">
                   <div className="player">
                     <video
