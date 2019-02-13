@@ -1,13 +1,22 @@
 import React from 'react';
 import './style.scss';
 
+const layoutStyle = {
+    strokeWidth: 99,
+    stroke: 'rgb(234, 227, 189)',
+};
+
 export default () => (
     <section className="footer">
-        <div className="trees">
-            <div className="inner">
-                <img className="bg-img-1" src="http://127.0.0.1:3000/static/images/Vector%20Smart%20Object.png" />
-                <img className="bg-img-2" src="http://127.0.0.1:3000/static/images/Vector%20Smart%20Object1.png" />
-            </div>
+        <div className="trees" style={{width: '100%', height: '66px'}}>
+            <svg className="svg svgkaj" width="100%" height="66">
+                <g strokeWidth="1" stroke="#eae3bd " fill="none">
+                    <path d="M5 60 2000 0" strokeDasharray="5,5"/>
+                </g>
+                <line className="line" style={layoutStyle} y2="56" x2="1920" x1="0" y1="114"/>
+            </svg>
+            <img className="bg-img-1" src="http://127.0.0.1:3000/static/images/Vector%20Smart%20Object.png" />
+            <img className="bg-img-2" src="http://127.0.0.1:3000/static/images/Vector%20Smart%20Object1.png" />
         </div>
         <div className="container">
             <div className="row">

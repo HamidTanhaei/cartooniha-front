@@ -72,7 +72,7 @@ class VideoPage extends React.Component<IProps> {
                     />
                   </div>
                   <div className="likers">
-                    {info.bookmarks.length && info.bookmarks.length <= 5 && info.bookmarks.map((person: any, i: number) => {
+                    {!!info.bookmarks.length && info.bookmarks.length <= 5 && info.bookmarks.map((person: any, i: number) => {
                       const divider = i < info.bookmarks.length - 1 ? ' - ' : '';
                       return (
                           <React.Fragment key={i}>
@@ -81,7 +81,7 @@ class VideoPage extends React.Component<IProps> {
                           </React.Fragment>
                       );
                     })}
-                    {info.bookmarks.length && info.bookmarks.length > 5 && `${info.bookmarks.length} ${lang.totalBookmarkers}`}
+                    {!!info.bookmarks.length && info.bookmarks.length > 5 && `${info.bookmarks.length} ${lang.totalBookmarkers}`}
                   </div>
                   <div className="video-buttons">
                     <span className="video-opt">
@@ -95,7 +95,7 @@ class VideoPage extends React.Component<IProps> {
                     </span>
                   </div>
                   <div className="likers-name">
-                    {info.bookmarks.length && info.bookmarks.length > 5 && info.bookmarks.map((person: any, i: number) => {
+                    {!!info.bookmarks.length && info.bookmarks.length > 5 && info.bookmarks.map((person: any, i: number) => {
                       const divider = i < info.bookmarks.length - 1 ? ' - ' : '';
                       return `${person.user.first_name} ${person.user.last_name}${divider}`;
                     })}

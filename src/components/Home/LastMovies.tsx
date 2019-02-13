@@ -1,10 +1,6 @@
 import React from 'react';
 import VideoCard from '../VideoCard';
 
-const layoutStyle = {
-    strokeWidth: 99,
-    stroke: 'rgb(234, 227, 189)',
-};
 export default (props: any) => {
     const {data} = props;
     return (
@@ -42,14 +38,6 @@ export default (props: any) => {
                         }) : <div>loading...</div>}
                     </div>
                 </div>
-            </div>
-            <div className="trees" style={{width: '100%', height: '66px'}}>
-                <svg className="svg svgkaj" width="100%" height="66">
-                    <g strokeWidth="1" stroke="#eae3bd " fill="none">
-                        <path d="M5 60 2000 0" strokeDasharray="5,5"/>
-                    </g>
-                    <line className="line" style={layoutStyle} y2="56" x2="1920" x1="0" y1="114"/>
-                </svg>
             </div>
         </section>
     );

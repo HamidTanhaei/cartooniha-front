@@ -146,9 +146,6 @@ a:hover{text-decoration:none;}
     .title .filter .fitem{display:inline-block; padding:10px;}
     .title .filter .fitem.quality{background:url(../images/filtem-quality.png) no-repeat right; padding-right:40px;}
     .title .filter .fitem.type{background:url(../images/filtem-type.png) no-repeat right; padding-right:40px; margin-right:10px;}
-    .trees{position:relative; z-index:6;}
-    .trees:before{display:block; content:' '; position:absolute; background:rgba(0, 0, 0, 0) url("../images/tree-footer-right.png") no-repeat scroll 10px 0; width:89px; height:87px; right:0; top:-61px; z-index:5;}
-    .trees:after{display:block; content:' '; position:absolute; background: url("../images/tree-footer-left.png") no-repeat scroll -10px 7px; width:75px; height:89px; left:0; top:-24px;}
     @media (max-width: 1100px) {
         .trees:before { top: -45px; }
     }
