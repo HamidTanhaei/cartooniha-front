@@ -13,23 +13,23 @@ export default () => (
                     </Link>
                 </li>
                 <li>
-                    <a href="#">
+                    <Link to="/m-category/2">
                         <div className="icon2 animate03"/>
                         انیمیشن ها
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="#">
+                    <Link to="/m-category/1">
                         <div className="icon3 animate03"/>
                         کارتون ها
-                    </a>
+                    </Link>
                 </li>
                 <br className="hidden-lg hidden-md hidden-sm"/>
                 <li>
-                    <a href="#">
+                    <Link to="/m-category/3">
                         <div className="icon4 animate03"/>
                         انیمیت ها
-                    </a>
+                    </Link>
                 </li>
                 <li>
                     <a href="#">

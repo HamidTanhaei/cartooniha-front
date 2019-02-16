@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoCard from '../VideoCard';
+import './style.scss';
 
 export default (props: any) => {
     const {data} = props;
@@ -31,7 +32,7 @@ export default (props: any) => {
                         </div>
                         {data ? Object.keys(data).map((key) => {
                             return (
-                                <div key={key} className="col-xs-6 col-sm-4 col-md-3 col-lg-3 movies-list">
+                                <div key={key} className="col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                     <VideoCard data={data[key]}/>
                                 </div>
                             );

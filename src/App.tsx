@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import HomeContainer from './containers/Home';
 import VideoContainer from './containers/Video';
+import MainCategoryContainer from './containers/MainCategory';
+import CategoryContainer from './containers/Category';
 import './theme/static/stylesheets/bootstrap.scss';
 import './theme/antd/index.scss';
 import './theme/global/index.scss';
@@ -22,7 +24,7 @@ class Routes extends React.Component<IProps> {
 
     constructor(props: IProps) {
         super(props);
-        axios.defaults.headers.common.Authorization = `Bearer ${this.props.token}`;
+        // axios.defaults.headers.common.Authorization = `Bearer ${this.props.token}`;
     }
 
     public static getDerivedStateFromProps(nextProps: any, prevState: any) {
@@ -40,6 +42,8 @@ class Routes extends React.Component<IProps> {
             <React.Fragment>
                 <Route exact={true} path="/" component={HomeContainer} />
                 <Route exact={true} path="/video/:id" component={VideoContainer} />
+                <Route exact={true} path="/m-category/:id" component={MainCategoryContainer} />
+                <Route exact={true} path="/category/:id" component={CategoryContainer} />
             </React.Fragment>
         );
     }

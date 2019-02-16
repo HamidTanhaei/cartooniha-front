@@ -1,4 +1,4 @@
-export const apiMainPage = '/mainPage/';
+export const apiMainPage = '/main_page';
 
 export const user = {
     checkNumberAvailability: '/user/check_number_availability',
@@ -10,7 +10,8 @@ export const user = {
 };
 export const video = {
     singleVideo:             (videoId: any) => (`/video/single/${videoId}`),
-    videosByMainCategory:    (videoId: any) => (`/video/main_category/${videoId}`),
+    videosByMainCategory:    (mainCatId: any) => (`/video/main_category/${mainCatId}`),
+    videosByCategory:        (catId: any) => (`/video/category/${catId}`),
 };
 
 export const bookmark = {

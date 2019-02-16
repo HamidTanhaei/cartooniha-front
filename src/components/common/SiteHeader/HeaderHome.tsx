@@ -69,16 +69,22 @@ export default (props: any) => (
           </Link>
         </li>
         <li>
-          <div className="icon2 animate03" />
-          انیمیشن ها
+          <Link to="/m-category/2">
+            <div className="icon2 animate03" />
+            انیمیشن ها
+          </Link>
         </li>
         <li>
-          <div className="icon3 animate03" />
-          کارتون ها
+          <Link to="/m-category/1">
+            <div className="icon3 animate03" />
+            کارتون ها
+          </Link>
         </li>
         <li>
-          <div className="icon4 animate03" />
-          انیمیت ها
+          <Link to="/m-category/3">
+            <div className="icon4 animate03" />
+            انیمه
+          </Link>
         </li>
         <li>
           <div className="icon5 animate03" />

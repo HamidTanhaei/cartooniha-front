@@ -27,9 +27,27 @@ export const getVideoEpisodeNumber = (data: any): string => {
 
 export const getVideoImage = (id: any): string => {
     try {
-        return process.env.RAZZLE_APP_IMAGES_PATH + '/CartoonsImage/' + id + '/player-493x301.jpg';
+        return process.env.RAZZLE_APP_IMAGES_PATH + '/CartoonsImage/' + id + '/player.jpg';
     } catch (e) {
         console.log('getVideoImage error:', e);
+        return '';
+    }
+};
+
+export const getCategoryImage = (id: any): string => {
+    try {
+        return process.env.RAZZLE_APP_IMAGES_PATH + '/CatsImage/' + id + '/player-resized.jpg';
+    } catch (e) {
+        console.log('getCategoryImage error:', e);
+        return '';
+    }
+};
+
+export const getVideoPlayUrl = (id: any, type = 'webm'): string => {
+    try {
+        return process.env.RAZZLE_APP_STREAM_PATH + '/PlayFree/' + id + '/video.' + type;
+    } catch (e) {
+        console.log('getVideoPlayUrl error:', e);
         return '';
     }
 };

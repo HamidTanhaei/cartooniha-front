@@ -8,9 +8,7 @@
     overflow: hidden;
     img{
       height:200px;
-      position:absolute;
-      right:-25%;
-      top:0;
+      min-width: 100%;
     }
   }
   .cartoon-title{text-align:center; padding-top:5px; padding-bottom:5px;}

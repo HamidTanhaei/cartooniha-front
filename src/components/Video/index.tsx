@@ -6,7 +6,7 @@ import DownloadLinks from './DownloadLinks';
 import MostViewsContainer from '../../containers/Video/RelatedVideos';
 import BookmarkContainer from '../../containers/Video/Bookmark';
 import { SingleLine, MultiLine } from '../ContentLoader';
-import { getVideoEpisodeNumber, getVideoImage } from '../../utils';
+import { getVideoEpisodeNumber, getVideoImage, getVideoPlayUrl } from '../../utils';
 import './style.scss';
 import lang from './lang';
 
@@ -41,10 +41,6 @@ class VideoPage extends React.Component<IProps> {
     this.setState({ navTabActiveType: type });
   }
 
-  public async componentDidMount() {
-    console.log('inner compontet mounted');
-  }
-
   public render() {
     const info = this.props.loading ? loadingData : this.props.pageData;
 
@@ -61,7 +57,7 @@ class VideoPage extends React.Component<IProps> {
         <section className="innerpage-section2 video-single">
           <div className="background">
             <div className="container">
-              <div className="row my-wrapper">
+              <div className="row">
                 {!this.props.loading && <MostViewsContainer tags={info.video_category.gener} />}
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-9">
                   <div className="player">
@@ -73,7 +69,10 @@ class VideoPage extends React.Component<IProps> {
                       preload="none"
                       poster={getVideoImage(info.id)}
                       data-setup="{}"
-                    />
+                    >
+                        <source src={getVideoPlayUrl(info.id, 'webm')} type="video/webm" />
+                        <source src={getVideoPlayUrl(info.id, 'mp4')} type="video/mp4" />
+                    </video>
                   </div>
                   <div className="likers">
                     {!!info.bookmarks.length && info.bookmarks.length <= 5 && info.bookmarks.map((person: any, i: number) => {

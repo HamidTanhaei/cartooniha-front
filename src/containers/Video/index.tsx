@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from 'antd';
 import { IVideoPage } from '../../interfaces/video';
-import MovieComponent from '../../components/Video';
+import VideoComponent from '../../components/Video';
 import VideoApi from '../../services/api/video';
 
 interface IMatchInterface {
@@ -20,12 +20,10 @@ type IState = {
 };
 
 class VideoContainer extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
-        super(props);
-        this.state = {
-            loading: true,
-        };
-    }
+    public state: IState = {
+        loading: true,
+    };
+
     public videoApi = new VideoApi();
 
     private getData = async (): Promise<void> => {
@@ -38,7 +36,7 @@ class VideoContainer extends React.Component<IProps, IState> {
             console.log('get video info error', e);
         }
     }
-    public async componentDidMount() {
+    public componentDidMount() {
         this.getData();
     }
 
@@ -50,7 +48,7 @@ class VideoContainer extends React.Component<IProps, IState> {
 
     public render() {
         if (!this.state.loading) {
-            return(<MovieComponent {...this.state} />);
+            return(<VideoComponent {...this.state} />);
         } else {
             return(<Icon type="loading" />);
         }
