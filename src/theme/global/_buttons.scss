@@ -8,6 +8,11 @@
   margin-left:1px;
   font-size: 14px;
   border-radius: 5px;
+  .anticon{
+    vertical-align: bottom;
+    margin-left: 5px;
+  }
+  a{color:#000;}
   &:last-child{
     border-radius: 18px 5px 5px 15px !important;
   }

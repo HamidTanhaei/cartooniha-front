@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from 'antd';
-import Category from '../components/Category';
+import Favorites from '../components/Favorites';
 
 interface IState {
     loading: boolean;
@@ -10,7 +10,7 @@ interface IProps {
     match: any;
 }
 
-class CategoryContainer extends React.Component<IProps, IState> {
+class FavoritesContainer extends React.Component<IProps, IState> {
     public state = {loading: false};
 
     public componentDidUpdate(prevProps: Readonly<IProps>, prevState: Readonly<IState>, snapshot?: any): void {
@@ -24,11 +24,11 @@ class CategoryContainer extends React.Component<IProps, IState> {
     public render() {
         const { loading } = this.state;
         if (!loading) {
-            return(<Category catId={this.props.match.params.id} />);
+            return(<Favorites />);
         } else {
             return(<Icon type="loading" />);
         }
     }
 }
 
-export default CategoryContainer;
+export default FavoritesContainer;

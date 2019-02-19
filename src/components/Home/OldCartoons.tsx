@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Carousel from './Carousel';
 
 const layoutStyle = {
@@ -12,7 +13,11 @@ export default (props: any) => (
         <div className="col-xs-12 col-sm-12 col-md-9 col-lg-9">
           <div className="title">
             بچه ها دوست دارید کارتون‌های بچگی پدر و مادراتون رو ببینید!
-            <div className="filter">همه انیمیشن ها</div>
+            <div className="filter">
+              <Link to="/m-category/1">
+                همه کارتون ها
+              </Link>
+            </div>
             <div className="clear" />
           </div>
           <div id="owlslider2" className="owlslidermp movies-list">

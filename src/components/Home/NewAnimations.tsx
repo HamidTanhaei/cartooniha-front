@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Carousel from './Carousel';
 
 const layoutStyle = {
@@ -16,7 +17,9 @@ export default (props: any) => (
           <div className="title">
             جدید ترین انیمیشن ها رو اینجا تماشا کنید!
             <div className="filter">
+              <Link to="/m-category/2">
               همه انیمیشن ها
+              </Link>
             </div>
             <div className="clear" />
           </div>

@@ -1,5 +1,5 @@
 .video-card{
-  background:#fff; padding:7px; padding-bottom:15px; border-radius:20px;
+  background:#fff; padding:7px; border-radius:20px;
   .cartoon-image{
     border-radius:15px;
     height:200px;
@@ -11,7 +11,15 @@
       min-width: 100%;
     }
   }
-  .cartoon-title{text-align:center; padding-top:5px; padding-bottom:5px;}
+  .cartoon-title{
+    text-align:center;
+    padding-top:8px;
+    padding-bottom:5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction:rtl;
+  }
   .detail{
     display:flex;
     flex-direction: row-reverse;
@@ -21,8 +29,8 @@
       img{width:auto; display:inline-block;}
     }
     .like{width:85px; text-align:center; position:relative; padding-top:19px; font-size:12px;}
-    .like:before{position:absolute; top:4px; right:0; content:' '; background:url(../images/like.png) no-repeat center; width:85px; height:15px;}
+    .like:before{position:absolute; top:4px; right:0; content:' '; background:url(../../theme/static/images/like.png) no-repeat center; width:85px; height:15px;}
     .views{width:50px; text-align:center; position:relative; padding-top:19px; font-size:12px;}
-    .views:before{position:absolute; top:0; left:0; content:' '; background:url(../images/views.png) no-repeat center; width:50px; height:23px;}
+    .views:before{position:absolute; top:0; left:0; content:' '; background:url(../../theme/static/images/views.png) no-repeat center; width:50px; height:23px;}
   }
 }

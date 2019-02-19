@@ -1,4 +1,5 @@
 export default {
     logout: 'خروج',
-    profile: 'پروفایل',
+    hi: 'سلام',
+    favorite: 'مورد علاقه',
 }

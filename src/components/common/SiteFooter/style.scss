@@ -34,11 +34,20 @@
   .news{
     ul{padding:0;}
     li{
-      list-style:none; font-size:15px; padding:9px 0;
+      list-style:none;
+      font-size:15px;
+      padding:9px 0;
+      display:flex;
       & a{color:#000;}
-      & span{width:23px; height:23px; background:url(../../../theme/static/images/arrow1.png) no-repeat bottom; display:inline-block; vertical-align:top; margin-left:5px;}
+      & span{width:23px; height:23px; background:url(../../../theme/static/images/arrow1.png) no-repeat bottom; vertical-align:top; margin-left:5px;}
       &:hover span{background:url(../../../theme/static/images/arrow1.png) no-repeat top;}
-      & div{display:inline-block; vertical-align:top;}
+      & div{
+        vertical-align:top;
+        white-space: nowrap;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+      }
     }
   }
   .formitem{
@@ -59,7 +68,13 @@
     li:hover{background:#e6e6e6;}
     li .name{display:inline-block;}
     li .date{display:inline-block; font-size:13px; color:#747474;}
-    li .text{color:#5b5b5b;}
+    li .text{
+      color:#5b5b5b;
+      white-space: nowrap;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+    }
   }
 }
 

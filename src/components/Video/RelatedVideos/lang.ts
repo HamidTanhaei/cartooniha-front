@@ -1,4 +1,4 @@
 export default {
-    title: 'کارتون های مشابه',
+    title: 'کارتون های دیگر',
     view: 'بازدید'
 }

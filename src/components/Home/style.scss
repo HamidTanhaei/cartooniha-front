@@ -1,12 +1,12 @@
 .mainpage-section6{
-  background:#f2f1eb url(../images/background-white.png) no-repeat left 40px top 40px; padding-top:40px;
-  .back2{background:url(../images/background-white2.png) no-repeat center;}
+  background:#f2f1eb url(../../theme/static/images/background-white.png) no-repeat left 40px top 40px; padding-top:40px;
+  .back2{background:url(../../theme/static/images/background-white2.png) no-repeat center;}
   .title{font-size:22px; padding-bottom:40px; padding-top:40px; color:#000;}
   .item{margin-bottom:40px;}
   .title .filter{background:#fff; display:inline-block; float:left; font-size:15px; padding-right:10px}
   .title .filter .fitem{display:inline-block; padding:10px;}
-  .title .filter .fitem.quality{background:url(../images/filtem-quality.png) no-repeat right; padding-right:40px;}
-  .title .filter .fitem.type{background:url(../images/filtem-type.png) no-repeat right; padding-right:40px; margin-right:10px;}
+  .title .filter .fitem.quality{background:url(../../theme/static/images/filtem-quality.png) no-repeat right; padding-right:40px;}
+  .title .filter .fitem.type{background:url(../../theme/static/images/filtem-type.png) no-repeat right; padding-right:40px; margin-right:10px;}
   @media (max-width: 1100px) {
     .trees:before { top: -45px; }
   }

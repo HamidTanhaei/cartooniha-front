@@ -21,7 +21,7 @@ class MainCategoryContainer extends React.Component<IProps, IState> {
         }
     }
 
-    public render(){
+    public render() {
         const { loading } = this.state;
         if (!loading) {
             return(<MainCategory catId={this.props.match.params.id} />);

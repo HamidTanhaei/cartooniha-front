@@ -1,5 +1,7 @@
+import { Icon } from 'antd';
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as actions from '../../../redux/user/action';
 import HeaderHome from './HeaderHome';
 import HeaderInner from './HeaderInner';
@@ -47,11 +49,17 @@ class TheHeader extends React.Component<IProps> {
                         <div className="login-register">
                             {props.user.token ? (
                                 <div className="button-group-fantasy">
-                                    <div className="button-fantasy gray" onClick={this.props.logout}>
-                                        {lang.logout}
+                                    <div className="button-fantasy yellow">
+                                        {lang.hi} {props.user.fname}
                                     </div>
                                     <div className="button-fantasy yellow">
-                                        {lang.profile} {props.user.fname}
+                                        <Link to={'/favorites'}>
+                                            <Icon type="heart" />
+                                            {lang.favorite}
+                                        </Link>
+                                    </div>
+                                    <div className="button-fantasy gray" onClick={this.props.logout}>
+                                        {lang.logout}
                                     </div>
                                 </div>
                             ) : (

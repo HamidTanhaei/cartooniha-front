@@ -4,7 +4,7 @@ import ImgPlaceHolder from '../ImgPlaceHolder';
 import { IVideo } from '../../interfaces/video';
 import { getVideoName, getVideoImage } from '../../utils';
 import './style.scss';
-import starIcon from '../../theme/static/images/star-off.png';
+// import starIcon from '../../theme/static/images/star-off.png';
 
 interface IProps {
     data: IVideo;
@@ -26,7 +26,7 @@ class VideoCard extends React.Component<IProps> {
                         {getVideoName(data)}
                     </div>
                     <div className="detail">
-                        <div className="rates">
+                        {/*<div className="rates">
                             <div className="stars">
                                 <img src={starIcon} />
                                 <img src={starIcon} />
@@ -34,16 +34,14 @@ class VideoCard extends React.Component<IProps> {
                                 <img src={starIcon} />
                                 <img src={starIcon} />
                             </div>
-                            {/*todo rater*/}
                             25 رای
-                        </div>
-                        <div className="like">
-                            {/*todo lover*/}
+                        </div>*/}
+                        {/*<div className="like">
                             309 نفر
-                        </div>
-                        <div className="views">
+                        </div>*/}
+                        {/*<div className="views">
                             {data.viewed} نفر
-                        </div>
+                        </div>*/}
                     </div>
                     <div className="clear"/>
                 </Link>

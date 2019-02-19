@@ -15,9 +15,13 @@ export const remove = async (videoId: number) => {
                  });
 };
 
-export const list = async () => {
+export const list = async ({limit = 10, offset = 0}) => {
     return axios({
                      url: bookmarkApi.list,
                      method: 'get',
+                     params: {
+                         limit,
+                         offset
+                     }
                  });
 };

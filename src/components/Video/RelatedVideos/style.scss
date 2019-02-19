@@ -32,15 +32,13 @@
       display: flex;
       .img-wrapper {
         width: 50%;
-        position: relative;
+        height:80px;
         margin: 5px;
         overflow: hidden;
         border-radius: 10px;
         img {
-          position: absolute;
           height: 100%;
-          right:0;
-          top:0;
+          min-width: 100%;
         }
       }
       .content-wrapper {
