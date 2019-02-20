@@ -22,7 +22,7 @@ export default () => (
         </div>
         <div className="container">
             <div className="row">
-                <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3">
                     <div className="item">
                         <div className="ribbon">تماس با ما</div>
                         <div className="content contact">
@@ -35,7 +35,7 @@ export default () => (
                         </div>
                     </div>
                 </div>
-                <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div className="hidden-xs col-sm-4 col-md-3 col-lg-3">
                     <div className="item">
                         <div className="ribbon">آخرین اخبار</div>
                         <div className="content news">
@@ -68,7 +68,7 @@ export default () => (
                         </div>
                     </div>
                 </div>
-                <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div className="hidden-xs col-sm-4 col-md-3 col-lg-3">
                     <div className="item">
                         <div className="ribbon">آخرین دیدگاه ها</div>
                         <div className="content comments">
@@ -101,7 +101,7 @@ export default () => (
                         </div>
                     </div>
                 </div>
-                <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div className="hidden-xs hidden-sm col-md-3 col-lg-3">
                     <div className="item">
                         <div className="ribbon">نظر سنجی</div>
                         <div className="content">
