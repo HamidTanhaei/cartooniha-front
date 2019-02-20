@@ -37,7 +37,7 @@ function TheSlider(props: any) {
       {slides ? Object.keys(slides).map( (key) => {
         return (
             <div key={key}>
-              <img className="img-respansive" src={slides[key].image} />
+              <img className="img-respansive" src={process.env.RAZZLE_APP_IMAGES_PATH + '/Slider/' + slides[key].image} />
             </div>
         );
       }) : <div>loading slider</div>}

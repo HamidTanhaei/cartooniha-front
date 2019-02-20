@@ -8,6 +8,7 @@ import HeaderInner from './HeaderInner';
 import User from '../../../containers/User';
 import { IUser } from '../../../interfaces/user';
 import lang from './lang';
+import logoImage from '../../../theme/static/images/logo.png';
 
 const layoutStyle = {
   strokeWidth: 99,
@@ -44,7 +45,7 @@ class TheHeader extends React.Component<IProps> {
                 <div className="container">
                     <div className="row">
                         <div className="logo">
-                            <img src="/static/images/logo.png" alt="" title="" />
+                            <img src={logoImage} alt="" title="" />
                         </div>
                         <div className="login-register">
                             {props.user.token ? (
@@ -91,7 +92,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        logout: (data: any) => {
+        logout: () => {
             dispatch(actions.logout());
         }
     };

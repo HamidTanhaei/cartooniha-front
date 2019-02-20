@@ -1,10 +1,11 @@
 import React from 'react';
 import Slider from 'react-slick';
+import userSimpleImage from '../../theme/static/images/userimage-simple.png';
 
 const Item = () => (
   <div className="item">
     <div className="image">
-      <img src="http://127.0.0.1:3000/static/images/userimage-simple.png" />
+      <img src={userSimpleImage} />
     </div>
     <div className="name">
       علی

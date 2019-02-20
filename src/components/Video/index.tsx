@@ -9,6 +9,10 @@ import { SingleLine, MultiLine } from '../ContentLoader';
 import { getVideoEpisodeNumber, getVideoImage, getVideoPlayUrl } from '../../utils';
 import './style.scss';
 import lang from './lang';
+import commentImage from '../../theme/static/images/comment.png';
+import replyImage from '../../theme/static/images/replay.png';
+import tab1Image from '../../theme/static/images/tab1.png';
+import tab2Image from '../../theme/static/images/tab2.png';
 
 import OtherEpisodesCarousel from './OtherEpisods';
 
@@ -91,10 +95,10 @@ class VideoPage extends React.Component<IProps> {
                       <BookmarkContainer bookmarked={info.bookmarked} id={info.id} />
                     </span>
                     <span className="video-opt">
-                      <img src="http://127.0.0.1:3000/static/images/comment.png" />
+                      <img src={commentImage} />
                     </span>
                     <span className="video-opt">
-                      <img src="http://127.0.0.1:3000/static/images/replay.png" />
+                      <img src={replyImage} />
                     </span>
                   </div>
                   <div className="likers-name">
@@ -128,13 +132,13 @@ class VideoPage extends React.Component<IProps> {
                     <ul className="nav nav-tabs">
                       {!!Object.keys(info.otherEpisodes).length && <li className={this.state.navTabActiveType === 0 ? ' active' : ''} onClick={() => this.changeNavTab(0)}>
                         <a>
-                          <img src="http://127.0.0.1:3000/static/images/tab2.png" />
+                          <img src={tab2Image} />
                         </a>
                       </li>}
 
                       <li className={this.state.navTabActiveType === 1 ? ' active' : ''} onClick={() => this.changeNavTab(1)}>
                         <a>
-                          <img src="http://127.0.0.1:3000/static/images/tab1.png" />
+                          <img src={tab1Image} />
                         </a>
                       </li>
                     </ul>

@@ -1,6 +1,7 @@
 import React from 'react';
 import VideoCard from '../VideoCard';
 import './style.scss';
+import monsterRedImage from '../../theme/static/images/monster-red.png';
 
 export default (props: any) => {
     const {data} = props;
@@ -28,7 +29,7 @@ export default (props: any) => {
                     </div>
                     <div className="row list">
                         <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                            <img src="http://127.0.0.1:3000/static/images/monster-red.png"/>
+                            <img src={monsterRedImage} />
                         </div>
                         {data ? Object.keys(data).map((key) => {
                             return (

@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.scss';
+import Tree1Image from '../../../theme/static/images/footer-1.png';
+import Tree2Image from '../../../theme/static/images/footer-2.png';
 
 const layoutStyle = {
     strokeWidth: 99,
@@ -15,8 +17,8 @@ export default () => (
                 </g>
                 <line className="line" style={layoutStyle} y2="56" x2="1920" x1="0" y1="114"/>
             </svg>
-            <img className="bg-img-1" src="http://127.0.0.1:3000/static/images/Vector%20Smart%20Object.png" />
-            <img className="bg-img-2" src="http://127.0.0.1:3000/static/images/Vector%20Smart%20Object1.png" />
+            <img className="bg-img-2" src={Tree2Image} />
+            <img className="bg-img-1" src={Tree1Image} />
         </div>
         <div className="container">
             <div className="row">

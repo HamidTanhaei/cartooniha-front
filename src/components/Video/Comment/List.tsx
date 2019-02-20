@@ -2,6 +2,7 @@ import React from 'react';
 import CommentApi from '../../../services/api/comment';
 import { daysBetween, elapsedTime } from '../../../utils';
 import lang from './lang';
+import userSimpleImage from '../../../theme/static/images/userimage-simple.png';
 
 interface IProps {
     videoId: number;
@@ -45,7 +46,7 @@ export default class CommentList extends React.Component<IProps, IState> {
                     <div key={key} className="media">
                         <div className="media-right">
                             <a href="#">
-                                <img className="media-object img img-respansive img-circle" src="http://127.0.0.1:3000/static/images/userimage-simple.png" alt="..." />
+                                <img className="media-object img img-respansive img-circle" src={userSimpleImage} alt="..." />
                             </a>
                         </div>
                         <div className="media-body">

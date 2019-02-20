@@ -5,6 +5,7 @@ import CommentList from './List';
 import commentApi from '../../../services/api/comment';
 import { Icon } from 'antd';
 import './style.scss';
+import userSimpleImage from '../../../theme/static/images/userimage-simple.png';
 
 interface IProps {
   videoId: number;
@@ -53,7 +54,7 @@ class Comments extends React.Component <IProps> {
             <div className="media wr-cm">
               <div className="media-right media-bottom">
                 <a href="#">
-                  <img className="media-object img img-respansive img-circle" src="http://127.0.0.1:3000/static/images/userimage-simple.png" alt="..." />
+                  <img className="media-object img img-respansive img-circle" src={userSimpleImage} alt="..." />
                 </a>
                 <span className="wr-arrow" />
               </div>
