@@ -6,6 +6,7 @@ import DownloadLinks from './DownloadLinks';
 import MostViewsContainer from '../../containers/Video/RelatedVideos';
 import BookmarkContainer from '../../containers/Video/Bookmark';
 import { SingleLine, MultiLine } from '../ContentLoader';
+import MediaElement from '../Mediaelement';
 import { getVideoEpisodeNumber, getVideoImage, getVideoPlayUrl } from '../../utils';
 import './style.scss';
 import lang from './lang';
@@ -56,6 +57,12 @@ class VideoPage extends React.Component<IProps> {
       episodeNumber = loadingData.customorder;
     }
 
+    const viodeFiles = [
+        {src: getVideoPlayUrl(info.id, 'm3u8'), type: 'application/x-mpegURL'},
+        {src: getVideoPlayUrl(info.id, 'webm'), type: 'video/webm'},
+        {src: getVideoPlayUrl(info.id, 'mp4'),  type: 'video/mp4'}
+    ];
+
     return (
       <Layout HeadStyle="inner">
         <section className="innerpage-section2 video-single">
@@ -65,18 +72,20 @@ class VideoPage extends React.Component<IProps> {
                 {!this.props.loading && <MostViewsContainer tags={info.video_category.gener} />}
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-9">
                   <div className="player">
-                    <video
-                      width="100%"
-                      id="MY_VIDEO_1"
-                      className="video-js vjs-default-skin"
-                      controls={true}
-                      preload="none"
-                      poster={getVideoImage(info.id)}
-                      data-setup="{}"
-                    >
-                        <source src={getVideoPlayUrl(info.id, 'webm')} type="video/webm" />
-                        <source src={getVideoPlayUrl(info.id, 'mp4')} type="video/mp4" />
-                    </video>
+                    {typeof window !== 'undefined' && (
+                        <MediaElement
+                            id="player1"
+                            mediaType="video"
+                            preload="none"
+                            controls={true}
+                            width="100%"
+                            height="360"
+                            poster={getVideoImage(info.id)}
+                            sources={JSON.stringify(viodeFiles)}
+                            options={JSON.stringify({})}
+                            tracks={JSON.stringify({})}
+                        />
+                    )}
                   </div>
                   <div className="likers">
                     {!!info.bookmarks.length && info.bookmarks.length <= 5 && info.bookmarks.map((person: any, i: number) => {

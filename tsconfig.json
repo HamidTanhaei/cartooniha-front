@@ -27,6 +27,7 @@
     "node_modules",
     "node_modules/@types/**",
     "build",
+    "public",
     "scripts",
     "acceptance-tests",
     "webpack",

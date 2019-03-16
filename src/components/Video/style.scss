@@ -1,4 +1,10 @@
 .video-single{
+  .player {
+    width: 100%;
+    border-radius:20px;
+    height: auto;
+    overflow: hidden;
+  }
   .likers {
     height: 33px;
     position: relative;

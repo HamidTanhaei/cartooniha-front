@@ -45,6 +45,9 @@ export const getCategoryImage = (id: any): string => {
 
 export const getVideoPlayUrl = (id: any, type = 'webm'): string => {
     try {
+        if (type === 'm3u8') {
+            return process.env.RAZZLE_APP_STREAM_PATH + '/PlayFree/' + id + '/index.' + type;
+        }
         return process.env.RAZZLE_APP_STREAM_PATH + '/PlayFree/' + id + '/video.' + type;
     } catch (e) {
         console.log('getVideoPlayUrl error:', e);
