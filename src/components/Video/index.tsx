@@ -6,7 +6,6 @@ import DownloadLinks from './DownloadLinks';
 import MostViewsContainer from '../../containers/Video/RelatedVideos';
 import BookmarkContainer from '../../containers/Video/Bookmark';
 import { SingleLine, MultiLine } from '../ContentLoader';
-import MediaElement from '../Mediaelement';
 import { getVideoEpisodeNumber, getVideoImage, getVideoPlayUrl } from '../../utils';
 import './style.scss';
 import lang from './lang';
@@ -14,6 +13,16 @@ import commentImage from '../../theme/static/images/comment.png';
 import replyImage from '../../theme/static/images/replay.png';
 import tab1Image from '../../theme/static/images/tab1.png';
 import tab2Image from '../../theme/static/images/tab2.png';
+
+let MediaElement: any;
+if (typeof window !== 'undefined') {
+  // @ts-ignore
+  const my = require('../Mediaelement');
+  MediaElement = my.default;
+
+} else {
+  MediaElement = <div />;
+}
 
 import OtherEpisodesCarousel from './OtherEpisods';
 
@@ -72,7 +81,7 @@ class VideoPage extends React.Component<IProps> {
                 {!this.props.loading && <MostViewsContainer tags={info.video_category.gener} />}
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-9">
                   <div className="player">
-                    {typeof window !== 'undefined' && (
+                    {!false && (
                         <MediaElement
                             id="player1"
                             mediaType="video"
