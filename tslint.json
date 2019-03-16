@@ -44,6 +44,7 @@
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "ordered-imports": [false],
+    "no-var-requires": false,
     "one-line": [
       true,
       "check-catch",
