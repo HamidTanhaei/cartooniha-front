@@ -15,34 +15,34 @@ export default () => (
                 <li>
                     <Link to="/m-category/2">
                         <div className="icon2 animate03"/>
-                        انیمیشن ها
+                        انیمیشن
                     </Link>
                 </li>
                 <li>
                     <Link to="/m-category/1">
                         <div className="icon3 animate03"/>
-                        کارتون ها
+                        کارتون
                     </Link>
                 </li>
                 <br className="hidden-lg hidden-md hidden-sm"/>
                 <li>
                     <Link to="/m-category/3">
                         <div className="icon4 animate03"/>
-                        انیمیت ها
+                        انیمه
                     </Link>
-                </li>
+                </li>{/*
                 <li>
                     <a href="#">
                         <div className="icon5 animate03"/>
                         سوالات شما
                     </a>
-                </li>
-                <li>
+                </li>*/}
+                {/*<li>
                     <a href="#">
                         <div className="icon6 animate03"/>
                         تماس با ما
                     </a>
-                </li>
+                </li>*/}
             </ul>
         </div>
     </div>

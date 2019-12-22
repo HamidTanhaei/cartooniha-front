@@ -36,6 +36,7 @@
       height: 36px;
       position: absolute;
       right: 0;
+      top: 0;
     }
   }
 
@@ -104,6 +105,7 @@
       display: inline-block;
       width: 65px;
       height: 27px;
+      cursor: pointer;
       background: url(../../../theme/static/images/send.png) no-repeat top;
     }
   }

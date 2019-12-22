@@ -13,13 +13,13 @@ class DownloadLinks extends React.Component<IProps> {
             <ul className="dl-list">
                 {linkString && linkString.split('|||').map((item, key) => {
                     if (item) {
-                        const current = item.split('###');
+                        const [title, link] = item.split('###');
                         return (
                             <li key={key}>
-                                <a href={current[1]} target="_blank" className="link-dl">
-                                    {current[0]}
+                                <a href={process.env.RAZZLE_APP_DOWNLOAD_SERVER + link} target="_blank" className="link-dl">
+                                    {title}
                                 </a>
-                                <a href={current[1]} target="_blank" className="dl-btn hidden-xs" />
+                                <a href={process.env.RAZZLE_APP_DOWNLOAD_SERVER + link} target="_blank" className="dl-btn hidden-xs" />
                             </li>
                         );
                     } else {

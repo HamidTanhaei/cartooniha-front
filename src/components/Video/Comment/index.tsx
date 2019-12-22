@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import lang from './lang';
 import CommentList from './List';
 import commentApi from '../../../services/api/comment';
-import { Icon } from 'antd';
+import { Icon, message } from 'antd';
 import './style.scss';
 import userSimpleImage from '../../../theme/static/images/userimage-simple.png';
 
@@ -27,18 +27,22 @@ class Comments extends React.Component <IProps> {
   };
   public sendComment = async () => {
     const newCommentApi = new commentApi();
-    try {
-      if (this.input && this.input.value.length > 6) {
-        this.setState({sending: true});
-        await newCommentApi.commentAdd({videoId: this.props.videoId, text: this.input.value});
-        this.setState({sending: false, sent: true, text: this.input.value});
-        this.input.value = '';
-      } else {
-        this.setState({error: true});
+    if (this.props.user.token) {
+      try {
+        if (this.input && this.input.value.length > 6) {
+          this.setState({sending: true});
+          await newCommentApi.commentAdd({videoId: this.props.videoId, text: this.input.value});
+          this.setState({sending: false, sent: true, text: this.input.value});
+          this.input.value = '';
+        } else {
+          this.setState({error: true});
+        }
+      } catch (e) {
+        console.log(e);
+        this.setState({sending: false});
       }
-    } catch (e) {
-      console.log(e);
-      this.setState({sending: false});
+    } else {
+      message.warning('جهت ارسال نظر دیدگاه، ثبت نام کنید یا وارد شوید.');
     }
   }
   private input: HTMLInputElement | undefined | null;
@@ -76,7 +80,7 @@ class Comments extends React.Component <IProps> {
               </div>
             </div>
           </div>
-          {this.props.videoId && <CommentList videoId={this.props.videoId} />}
+          {this.props.videoId && this.props.user.token && <CommentList videoId={this.props.videoId} />}
         </div>);
   }
 }
@@ -87,4 +91,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(mapStateToProps, undefined)(Comments);
+export default connect(mapStateToProps, null)(Comments);

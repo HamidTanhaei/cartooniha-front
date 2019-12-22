@@ -1,20 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ImgPlaceHolder from '../ImgPlaceHolder';
-import { IVideo } from '../../interfaces/video';
+import { IVideoCategory } from '../../interfaces/video';
 import { getCategoryImage } from '../../utils';
 import './style.scss';
 
 interface IProps {
-    data: IVideo;
+    data: IVideoCategory;
 }
 
 class VideoCard extends React.Component<IProps> {
     public render() {
         const {data} = this.props;
+        const link = this.props.data.cartoons.length === 1 ? '/video/' + data.cartoons[0].id : '/category/' + data.id;
         return (
             <div className="category-card">
-                <Link to={'/category/' + data.id}>
+                <Link to={link}>
                     <div className="cartoon-image">
                         <ImgPlaceHolder
                             src={getCategoryImage(data.id)}

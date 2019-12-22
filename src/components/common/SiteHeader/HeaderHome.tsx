@@ -71,13 +71,13 @@ export default (props: any) => (
         <li>
           <Link to="/m-category/2">
             <div className="icon2 animate03" />
-            انیمیشن ها
+            انیمیشن
           </Link>
         </li>
         <li>
           <Link to="/m-category/1">
             <div className="icon3 animate03" />
-            کارتون ها
+            کارتون
           </Link>
         </li>
         <li>
@@ -86,14 +86,14 @@ export default (props: any) => (
             انیمه
           </Link>
         </li>
-        <li>
+        {/*<li>
           <div className="icon5 animate03" />
           سوالات شما
         </li>
         <li>
           <div className="icon6 animate03" />
           تماس با ما
-        </li>
+        </li>*/}
       </ul>
     </div>
   </div>

@@ -10,6 +10,7 @@ import CategoryContainer from './containers/Category';
 import './theme/static/stylesheets/bootstrap.scss';
 import './theme/antd/index.scss';
 import './theme/global/index.scss';
+import Layout from './components/common/SiteTemplate';
 
 // config axios default URL
 axios.defaults.baseURL = `${process.env.RAZZLE_APP_API_BASE_PATH}${process.env.RAZZLE_APP_API_VERSION}`;
@@ -41,11 +42,17 @@ class Routes extends React.Component<IProps> {
     public render() {
         return(
             <React.Fragment>
-                <Route exact={true} path="/" component={HomeContainer} />
-                <Route exact={true} path="/video/:id" component={VideoContainer} />
-                <Route exact={true} path="/m-category/:id" component={MainCategoryContainer} />
-                <Route exact={true} path="/category/:id" component={CategoryContainer} />
-                <Route exact={true} path="/favorites" component={Favorites} />
+                <Switch>
+                    <Route exact={true} path="/" component={HomeContainer} />
+                    <Layout HeadStyle="inner">
+                        <Switch>
+                            <Route exact={true} path="/video/:id" component={VideoContainer} />
+                            <Route exact={true} path="/m-category/:id" component={MainCategoryContainer} />
+                            <Route exact={true} path="/category/:id" component={CategoryContainer} />
+                            <Route exact={true} path="/favorites" component={Favorites} />
+                        </Switch>
+                    </Layout>
+                </Switch>
             </React.Fragment>
         );
     }

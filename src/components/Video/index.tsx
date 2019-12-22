@@ -73,12 +73,16 @@ class VideoPage extends React.Component<IProps> {
     ];
 
     return (
-      <Layout HeadStyle="inner">
         <section className="innerpage-section2 video-single">
           <div className="background">
             <div className="container">
               <div className="row">
-                {!this.props.loading && <MostViewsContainer tags={info.video_category.gener} />}
+                <div className="col-lg-3 hidden-sm hidden-xs hidden-md most-viewed">
+                    <div className="top-view-title">
+                        کارتون های دیگر
+                    </div>
+                  {!this.props.loading && <MostViewsContainer tags={info.video_category.gener} />}
+                </div>
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-9">
                   <div className="player">
                     {!false && (
@@ -181,7 +185,6 @@ class VideoPage extends React.Component<IProps> {
             </div>
           </div>
         </section>
-      </Layout>
     );
   }
 }

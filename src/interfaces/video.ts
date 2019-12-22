@@ -5,12 +5,14 @@ interface IVideoMainCategory {
     mc_metakeyword: string;
 }
 
-interface IVideoCategory {
+export interface IVideoCategory {
+    id: number;
     totalepisods: number;
     name: string;
     gener: string;
     enname: string;
     video_maincat: IVideoMainCategory;
+    cartoons: IVideo[];
 }
 
 export interface IVideo {

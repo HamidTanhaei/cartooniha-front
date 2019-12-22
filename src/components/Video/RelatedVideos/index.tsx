@@ -14,35 +14,32 @@ class RelatedVideos extends React.Component<IProps> {
   public render() {
     const { data } = this.props;
     return(
-        <div className="col-lg-3 hidden-sm hidden-xs hidden-md most-viewed">
-          <div className="top-view-title">
-            {lang.title}
-          </div>
-          {data.map((item: IVideo, key: number) => (
-              <div className="top-view-item" key={key}>
-                  <Link to={'/video/' + item.id}>
-                      <div className="img-wrapper">
-                          <ImgPlaceHolder
-                              src={getVideoImage(item.id)}
-                              alt={item.name}
-                          />
-                      </div>
-                      <div className="content-wrapper">
-                          <h3>
-                              {getVideoName(item)}
-                          </h3>
-                          <div className="top-view-count">
-                              {item.viewed} {' ' + lang.view}
-                          </div>
-                      </div>
-                  </Link>
-              </div>
-          ))}
+        <>
+            {data.map((item: IVideo, key: number) => (
+                <div className="top-view-item" key={key}>
+                    <Link to={'/video/' + item.id}>
+                        <div className="img-wrapper">
+                            <ImgPlaceHolder
+                                src={getVideoImage(item.id)}
+                                alt={item.name}
+                            />
+                        </div>
+                        <div className="content-wrapper">
+                            <h3>
+                                {getVideoName(item)}
+                            </h3>
+                            <div className="top-view-count">
+                                {item.viewed} {' ' + lang.view}
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+            ))}
 
-          <a href="#" className="read-more-left">
-            نمایش بیشتر
-          </a>
-        </div>
+            {/*<a href="#" className="read-more-left">
+                نمایش بیشتر
+            </a>*/}
+        </>
     );
   }
 }

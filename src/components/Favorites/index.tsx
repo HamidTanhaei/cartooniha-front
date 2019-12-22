@@ -38,26 +38,24 @@ class Favorites extends React.Component {
         });
 
         return (
-            <Layout HeadStyle="inner">
-                <section className="innerpage-section2 category-component">
-                    <div className="background">
-                        <div className="container">
-                            <div className="row">
-                                <InfiniteScroll
-                                    pageStart={0}
-                                    loadMore={this.loadItems}
-                                    hasMore={this.state.hasMoreItems}
-                                    loader={loader}
-                                >
-                                    <div className="tracks">
-                                        {items}
-                                    </div>
-                                </InfiniteScroll>
-                            </div>
+            <section className="innerpage-section2 category-component">
+                <div className="background">
+                    <div className="container">
+                        <div className="row">
+                            <InfiniteScroll
+                                pageStart={0}
+                                loadMore={this.loadItems}
+                                hasMore={this.state.hasMoreItems}
+                                loader={loader}
+                            >
+                                <div className="tracks">
+                                    {items}
+                                </div>
+                            </InfiniteScroll>
                         </div>
                     </div>
-                </section>
-            </Layout>
+                </div>
+            </section>
         );
     }
 }
