@@ -21,8 +21,6 @@ class Index extends React.Component<IProps> {
             <Layout HeadStyle="home" sliderData={slider}>
                 <NewAnimations data={lastAnimations} />
                 <OldCartoons data={lastCartoons} />
-                <UsersMostStars />
-                <JapanMovies data={lastAnimes} />
                 <LastMovies data={topVideoVisits} />
             </Layout>
         );

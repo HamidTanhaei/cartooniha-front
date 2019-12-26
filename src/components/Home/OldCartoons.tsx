@@ -4,7 +4,8 @@ import Carousel from './Carousel';
 
 const layoutStyle = {
   strokeWidth: 99,
-  stroke: 'rgb(125, 103, 228)',
+  // stroke: 'rgb(125, 103, 228)',
+  stroke: '#f2f1eb',
 };
 export default (props: any) => (
   <section className="mainpage-section3">

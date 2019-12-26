@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon } from 'antd';
 import RelatedVideos from '../../components/Video/RelatedVideos';
 import TagApi from '../../services/api/tag';
+import Loading from '../../components/Video/RelatedVideos/loading';
 
 interface IProps {
     tags: string;
@@ -34,7 +35,7 @@ class RelatedVideosContainer extends React.Component<IProps, IState> {
     public render() {
         const { loading, error, data } = this.state;
         if (loading && !error) {
-            return (<Icon type="loading" />);
+            return (new Array(10).fill(0).map((item) => (<Loading />)));
         } else if (error) {
                 return 'error';
         } else {

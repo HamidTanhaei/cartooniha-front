@@ -56,6 +56,7 @@ class VideoPage extends React.Component<IProps> {
   }
 
   public render() {
+    console.log('render called');
     const info = this.props.loading ? loadingData : this.props.pageData;
 
     let episodeNumber;

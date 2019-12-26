@@ -2,7 +2,7 @@ import React from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import videoApi from '../../services/api/video';
 import VideoCard from '../VideoCard';
-import Layout from '../common/SiteTemplate';
+import ItemLoading from '../CategoryCard/CategoryCardLoading';
 import './style.scss';
 
 interface IProps {
@@ -33,12 +33,16 @@ class Category extends React.Component<IProps> {
     }
 
     public render() {
-        const loader = <div className="loader">Loading ...</div>;
+        const loader = new Array(4).fill(0).map((val, i) => (
+            <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3" key={i}>
+                <ItemLoading />
+            </div>
+        ));
 
         const items: any[] = [];
-        this.state.tracks.map((video: any, i) => {
+        this.state.tracks.map((video: any) => {
             items.push(
-                <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3" key={i}>
+                <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3" key={video.id}>
                     <VideoCard data={video} />
                 </div>
             );

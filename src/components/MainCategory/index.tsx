@@ -2,7 +2,7 @@ import React from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import videoApi from '../../services/api/video';
 import CategoryCard from '../CategoryCard';
-import Layout from '../common/SiteTemplate';
+import ItemLoading from '../CategoryCard/CategoryCardLoading';
 import './style.scss';
 
 interface IProps {
@@ -21,7 +21,7 @@ class MainCategory extends React.Component<IProps> {
     public loadItems = (page: number) => {
         const mainCatId = this.props.catId;
         this.videoApi.videosByMainCategory({mainCatId, limit: 16 , offset: (page - 1) * 16}).then((res) => {
-            const tracks: any = this.state.tracks;
+            const tracks: any = [...this.state.tracks];
             res.data.map((track: any) => {
                 tracks.push(track);
             });
@@ -33,12 +33,16 @@ class MainCategory extends React.Component<IProps> {
     }
 
     public render() {
-        const loader = <div className="loader">Loading ...</div>;
+        const loader = new Array(4).fill(0).map((val, i) => (
+            <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3" key={i}>
+                <ItemLoading />
+            </div>
+        ));
 
         const items: any[] = [];
-        this.state.tracks.map((video: any, i) => {
+        this.state.tracks.map((video: any) => {
             items.push(
-                <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3" key={i}>
+                <div className="col-xs-6 col-sm-4 col-md-3 col-lg-3" key={video.id}>
                     <CategoryCard data={video} />
                 </div>
             );
@@ -54,6 +58,7 @@ class MainCategory extends React.Component<IProps> {
                                 loadMore={this.loadItems}
                                 hasMore={this.state.hasMoreItems}
                                 loader={loader}
+                                useWindow={true}
                             >
 
                                 <div className="tracks">

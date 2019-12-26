@@ -23,8 +23,8 @@ a:hover{text-decoration:none;}
     box-shadow: 1px 3px 0 #cdccc6 !important;
     margin-top: 10px;
     padding:4px 4px 0 4px;
-    .login{background:url(../images/login.png) no-repeat; display:inline-block; width:98px; height:38px;}
-    .register{background:url(../images/register.png) no-repeat; display:inline-block; width:97px; height:37px;}
+    .login{background:url(../images/login.png) no-repeat; display:inline-block; width:98px; height:38px; cursor: pointer;}
+    .register{background:url(../images/register.png) no-repeat; display:inline-block; width:97px; height:37px; cursor: pointer;}
     .test{
         margin-bottom: 5px;
         border-radius: 18px 5px 5px 15px;
