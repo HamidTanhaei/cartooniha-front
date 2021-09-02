@@ -14,7 +14,7 @@
     "@types/react-redux": "^7.0.1",
     "@types/react-slick": "^0.23.2",
     "antd": "^3.13.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "cookies": "^0.7.3",
     "cookies-js": "^1.2.3",
     "express": "^4.16.3",
