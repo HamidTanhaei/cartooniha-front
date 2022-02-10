@@ -19,7 +19,7 @@
     "cookies-js": "^1.2.3",
     "express": "^4.16.3",
     "mediaelement": "^4.2.9",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "razzle-plugin-runtimeenv": "^1.0.1",
     "razzle-plugin-scss": "^2.4.1",
     "react": "^16.3.2",
